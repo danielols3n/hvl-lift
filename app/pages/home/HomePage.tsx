@@ -91,7 +91,7 @@ export function HomePage() {
                   className="inline-flex items-center gap-2 rounded-full bg-cyan-400 px-6 py-3 font-semibold text-gray-950 shadow-[0_0_35px_-8px_rgba(6,182,212,0.6)] transition hover:-translate-y-0.5 hover:bg-cyan-300"
                 >
                   Join the flight crew
-                  <span aria-hidden>-></span>
+                  <span aria-hidden>{"->"}</span>
                 </a>
                 <a
                   href="#projects"
