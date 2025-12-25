@@ -137,12 +137,6 @@ export function HomePage() {
             >
               Contact the team
             </a>
-            <a
-              href="#"
-              className="inline-flex items-center gap-2 rounded-full border border-slate-200/30 px-6 py-3 font-semibold text-slate-100 transition hover:-translate-y-0.5 hover:border-cyan-400/70 hover:text-cyan-100"
-            >
-              Download our kit list
-            </a>
           </div>
         </section>
       </main>
