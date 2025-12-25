@@ -1,3 +1,6 @@
+import { NavBar } from "../../components/NavBar";
+import { Footer } from "../../components/Footer";
+
 const stats = [
   { label: "Active members", value: "120+" },
   { label: "Airframes built", value: "18" },
@@ -18,44 +21,13 @@ const tracks = [
   },
 ];
 
-const navLinks = [
-  { label: "Home", href: "/" },
-  { label: "Projects", href: "/projects" },
-  { label: "Our team", href: "/team" },
-];
-
 export function HomePage() {
   return (
-    <div className="relative min-h-screen overflow-hidden bg-gray-950 text-slate-100">
+    <div className="relative min-h-screen overflow-hidden bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 text-slate-100">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,#06b6d420,transparent_35%),radial-gradient(circle_at_80%_0%,#22d3ee19,transparent_32%),radial-gradient(circle_at_50%_90%,#14b8a640,transparent_32%)]" />
       <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(120deg,transparent_0,transparent_49%,rgba(255,255,255,0.04)_50%,transparent_51%,transparent)] bg-[length:11px_11px] opacity-40" />
 
-      <nav className="sticky top-0 z-30 border-b border-slate-800/60 bg-gray-950/80 backdrop-blur">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-          <div className="flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.2em] text-cyan-200">
-            <span className="h-px w-8 bg-cyan-500" />
-            HVL Lift
-          </div>
-          <div className="flex items-center gap-2 text-sm font-medium text-slate-200">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="rounded-full px-4 py-2 transition hover:-translate-y-0.5 hover:text-cyan-100 hover:underline"
-              >
-                {link.label}
-              </a>
-            ))}
-            <a
-              href="mailto:lift@hvl.no"
-              className="ml-1 inline-flex items-center gap-2 rounded-full bg-cyan-400 px-4 py-2 font-semibold text-gray-950 shadow-[0_0_25px_-8px_rgba(6,182,212,0.6)] transition hover:-translate-y-0.5 hover:bg-cyan-300"
-            >
-              Contact
-              <span aria-hidden>{"->"}</span>
-            </a>
-          </div>
-        </div>
-      </nav>
+      <NavBar />
 
       <main className="relative mx-auto max-w-6xl px-6 pb-24">
         <section className="flex flex-col gap-12 pt-16 lg:pt-24">
@@ -122,7 +94,7 @@ export function HomePage() {
             {tracks.map((track) => (
               <article
                 key={track.title}
-                className="rounded-2xl border border-slate-800/80 bg-gradient-to-b from-slate-900/60 to-slate-950/80 p-6 shadow-lg shadow-cyan-500/5 transition hover:-translate-y-1 hover:border-cyan-400/60"
+                className="rounded-2xl border border-slate-800/80 bg-gradient-to-b from-slate-950/60 to-slate-900/80 p-6 shadow-lg shadow-cyan-500/5 transition hover:-translate-y-1 hover:border-cyan-400/60"
               >
                 <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-cyan-500/10 text-cyan-200">
                   <span aria-hidden>*</span>
@@ -151,7 +123,7 @@ export function HomePage() {
           </div>
         </section>
 
-        <section className="mt-20 flex flex-col gap-4 rounded-3xl border border-cyan-500/30 bg-gradient-to-r from-cyan-500/10 via-slate-900/60 to-emerald-400/10 p-8 text-center shadow-[0_25px_80px_-45px_rgba(34,211,238,0.6)] backdrop-blur">
+        <section className="mt-20 flex flex-col gap-4 rounded-3xl border border-cyan-500/30 bg-gradient-to-r from-cyan-500/10 via-slate-950/60 to-emerald-400/10 p-8 text-center shadow-[0_25px_80px_-45px_rgba(34,211,238,0.6)] backdrop-blur">
           <p className="text-xs uppercase tracking-[0.3em] text-cyan-200">Ready to build</p>
           <h2 className="text-3xl font-semibold text-slate-50 sm:text-4xl">Your next launch starts here</h2>
           <p className="mx-auto max-w-3xl text-slate-200">
@@ -174,6 +146,7 @@ export function HomePage() {
           </div>
         </section>
       </main>
+      <Footer />
     </div>
   );
 }

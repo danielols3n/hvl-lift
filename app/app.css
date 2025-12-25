@@ -7,9 +7,19 @@
 
 html,
 body {
-  @apply bg-white dark:bg-gray-950;
+  @apply bg-white dark:bg-black;
 
   @media (prefers-color-scheme: dark) {
     color-scheme: dark;
   }
+}
+
+/* Ensure all interactive elements show a pointer cursor */
+a,
+button,
+[type="button"],
+[type="submit"],
+[type="reset"],
+[role="button"] {
+  cursor: pointer;
 }

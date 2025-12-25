@@ -1,8 +1,6 @@
-const navLinks = [
-  { label: "Home", href: "/" },
-  { label: "Projects", href: "/projects" },
-  { label: "Our team", href: "/team" },
-];
+import { useState } from "react";
+import { NavBar } from "../../components/NavBar";
+import { Footer } from "../../components/Footer";
 
 const projectCards = [
   {
@@ -43,59 +41,32 @@ const projectCards = [
   },
 ];
 
-const phases = [
-  {
-    title: "Explore",
-    body: "Define the mission, constraints, and risks. Sketch airframes, avionics, and payload needs with the crew.",
-  },
-  {
-    title: "Build & Sim",
-    body: "CAD, print, solder, and flash. Validate in simulators and bench tests before heading to the field.",
-  },
-  {
-    title: "Fly & Iterate",
-    body: "Field test, log data, and refine tunes. Ship docs so the next pilot can pick up where you left off.",
-  },
-];
-
 const highlights = [
   { label: "Active builds", value: "6" },
-  { label: "Open source repos", value: "14" },
   { label: "Contributors", value: "45" },
 ];
 
+const missionStats = [
+  { label: "Longest endurance", value: "54 min", detail: "Northwind VTOL on 6S Li-ion" },
+  { label: "Fastest pass", value: "242 km/h", detail: "Valkyrie FPV over runway 18" },
+  { label: "Telemetry uptime", value: "99.1%", detail: "Rolling 30-day field tests" },
+  { label: "Lines of flight code", value: "84k", detail: "Across avionics + ground station" },
+];
+
 export function ProjectsPage() {
+  const [projectIndex, setProjectIndex] = useState(0);
+
+  const currentProject = projectCards[projectIndex];
+
+  const nextProject = () => setProjectIndex((idx) => (idx + 1) % projectCards.length);
+  const prevProject = () => setProjectIndex((idx) => (idx - 1 + projectCards.length) % projectCards.length);
+
   return (
-    <div className="relative min-h-screen overflow-hidden bg-gray-950 text-slate-100">
+    <div className="relative min-h-screen overflow-hidden bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 text-slate-100">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,#06b6d420,transparent_35%),radial-gradient(circle_at_80%_0%,#22d3ee19,transparent_32%),radial-gradient(circle_at_50%_90%,#14b8a640,transparent_32%)]" />
       <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(120deg,transparent_0,transparent_49%,rgba(255,255,255,0.04)_50%,transparent_51%,transparent)] bg-[length:11px_11px] opacity-40" />
 
-      <nav className="sticky top-0 z-30 border-b border-slate-800/60 bg-gray-950/80 backdrop-blur">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-          <div className="flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.2em] text-cyan-200">
-            <span className="h-px w-8 bg-cyan-500" />
-            HVL Lift
-          </div>
-          <div className="flex items-center gap-2 text-sm font-medium text-slate-200">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="rounded-full px-4 py-2 transition hover:-translate-y-0.5 hover:text-cyan-100 hover:underline"
-              >
-                {link.label}
-              </a>
-            ))}
-            <a
-              href="mailto:lift@hvl.no"
-              className="ml-1 inline-flex items-center gap-2 rounded-full bg-cyan-400 px-4 py-2 font-semibold text-gray-950 shadow-[0_0_25px_-8px_rgba(6,182,212,0.6)] transition hover:-translate-y-0.5 hover:bg-cyan-300"
-            >
-              Contact
-              <span aria-hidden>{"->"}</span>
-            </a>
-          </div>
-        </div>
-      </nav>
+      <NavBar />
 
       <main className="relative mx-auto max-w-6xl px-6 pb-24">
         <section className="flex flex-col gap-10 pt-16 lg:pt-24">
@@ -122,7 +93,7 @@ export function ProjectsPage() {
                   <span aria-hidden>{"->"}</span>
                 </a>
                 <a
-                  href="#projects-list"
+                  href="#active-builds"
                   className="inline-flex items-center gap-2 rounded-full border border-slate-800/80 px-6 py-3 font-semibold text-slate-200 transition hover:-translate-y-0.5 hover:border-cyan-400/70 hover:text-cyan-100"
                 >
                   View active builds
@@ -143,7 +114,31 @@ export function ProjectsPage() {
           </div>
         </section>
 
-        <section id="projects-list" className="mt-20 space-y-6">
+        <section className="mt-14 grid gap-6 lg:grid-cols-[1.05fr,0.95fr]">
+          <div className="rounded-3xl border border-cyan-500/25 bg-gradient-to-br from-cyan-500/10 via-slate-900/70 to-emerald-400/10 p-7 shadow-[0_25px_80px_-45px_rgba(34,211,238,0.6)] backdrop-blur">
+            <p className="text-xs uppercase tracking-[0.3em] text-cyan-200">Program stats</p>
+            <h3 className="mt-3 text-2xl font-semibold text-slate-50">Signals from the fleet</h3>
+            <ul className="mt-4 space-y-3">
+              {missionStats.map((stat) => (
+                <li
+                  key={stat.label}
+                  className="flex items-start gap-3 rounded-2xl border border-slate-800/70 bg-slate-900/30 px-4 py-3 shadow-lg shadow-cyan-500/5"
+                >
+                  <span className="mt-1 inline-flex h-8 w-8 items-center justify-center rounded-full border border-cyan-400/40 bg-cyan-500/10 text-sm font-semibold text-cyan-100">
+                    *
+                  </span>
+                  <div>
+                    <div className="text-sm uppercase tracking-[0.12em] text-slate-300">{stat.label}</div>
+                    <div className="text-xl font-semibold text-cyan-200">{stat.value}</div>
+                    <div className="text-xs text-slate-400">{stat.detail}</div>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
+        <section id="active-builds" className="mt-20 space-y-6">
           <div className="flex items-center justify-between gap-4">
             <div>
               <p className="text-xs uppercase tracking-[0.25em] text-cyan-300">Active builds</p>
@@ -152,23 +147,23 @@ export function ProjectsPage() {
                 Hardware in the lab and software in the repo. Jump in, review, or test in the field.
               </p>
             </div>
+            <div className="hidden items-center gap-2 text-xs uppercase tracking-[0.2em] text-slate-400 md:flex">
+              <span className="h-px w-10 bg-cyan-500" />
+              Swipe through
+            </div>
           </div>
-          <div className="grid gap-6 md:grid-cols-3">
-            {projectCards.map((project) => (
-              <article
-                key={project.title}
-                className="flex h-full flex-col justify-between rounded-2xl border border-slate-800/80 bg-slate-950/70 p-6 shadow-lg shadow-cyan-500/5 transition hover:-translate-y-1 hover:border-cyan-400/60"
-              >
-                <div className="space-y-3">
-                  <div className="inline-flex items-center gap-2 rounded-full bg-cyan-500/10 px-3 py-1 text-xs font-semibold text-cyan-200">
-                    <span className="h-2 w-2 rounded-full bg-emerald-400" aria-hidden />
-                    {project.status}
-                  </div>
-                  <h3 className="text-xl font-semibold text-slate-50">{project.title}</h3>
-                  <p className="text-sm leading-relaxed text-slate-300">{project.summary}</p>
+          <div className="relative overflow-hidden rounded-3xl border border-slate-800/80 bg-gradient-to-b from-slate-950/60 to-slate-900/80 p-8 shadow-lg shadow-cyan-500/5">
+            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(6,182,212,0.08),transparent_45%),radial-gradient(circle_at_85%_70%,rgba(52,211,153,0.08),transparent_45%)]" />
+            <div className="relative space-y-6">
+              <article className="space-y-4 rounded-2xl border border-slate-800/70 bg-slate-950/60 p-6 shadow-lg shadow-cyan-500/5">
+                <div className="inline-flex items-center gap-2 rounded-full bg-cyan-500/10 px-3 py-1 text-xs font-semibold text-cyan-200">
+                  <span className="h-2 w-2 rounded-full bg-emerald-400" aria-hidden />
+                  {currentProject.status}
                 </div>
-                <div className="mt-4 flex flex-wrap gap-2">
-                  {project.tags.map((tag) => (
+                <h3 className="text-2xl font-semibold text-slate-50">{currentProject.title}</h3>
+                <p className="text-sm leading-relaxed text-slate-300">{currentProject.summary}</p>
+                <div className="flex flex-wrap gap-2">
+                  {currentProject.tags.map((tag) => (
                     <span
                       key={tag}
                       className="rounded-full border border-slate-800/80 px-3 py-1 text-xs font-semibold text-slate-200"
@@ -178,69 +173,42 @@ export function ProjectsPage() {
                   ))}
                 </div>
               </article>
-            ))}
-          </div>
-        </section>
-
-        <section className="mt-20 grid gap-6 lg:grid-cols-[1fr,1fr]">
-          <div className="rounded-3xl border border-cyan-500/30 bg-gradient-to-br from-cyan-500/10 via-slate-900/70 to-emerald-400/10 p-8 shadow-[0_25px_80px_-45px_rgba(34,211,238,0.6)] backdrop-blur">
-            <p className="text-xs uppercase tracking-[0.3em] text-cyan-200">How we build</p>
-            <h3 className="mt-3 text-2xl font-semibold text-slate-50">Ship-ready process</h3>
-            <p className="mt-3 text-sm leading-relaxed text-slate-200">
-              Each project moves through clear checkpoints so pilots, builders, and reviewers stay aligned.
-            </p>
-            <div className="mt-5 space-y-4">
-              {phases.map((phase, idx) => (
-                <div
-                  key={phase.title}
-                  className="rounded-2xl border border-slate-800/70 bg-black/20 p-4 shadow-lg shadow-cyan-500/5"
-                >
-                  <div className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.2em] text-cyan-200">
-                    <span className="inline-flex h-7 w-7 items-center justify-center rounded-full border border-cyan-400/40 bg-cyan-500/10 text-sm text-cyan-100">
-                      {idx + 1}
-                    </span>
-                    {phase.title}
+              <div className="flex flex-col items-center gap-3">
+                <div className="flex items-center justify-center gap-6">
+                  <button
+                    onClick={prevProject}
+                    className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-slate-700/70 bg-slate-900/60 text-cyan-100 transition hover:-translate-y-0.5 hover:border-cyan-300/70 hover:bg-slate-900"
+                    aria-label="Previous project"
+                  >
+                    {"<"}
+                  </button>
+                  <div className="flex items-center gap-2 rounded-full border border-slate-800/70 bg-slate-900/70 px-4 py-2">
+                    {projectCards.map((_, idx) => (
+                      <span
+                        key={idx}
+                        className={`h-2.5 w-2.5 rounded-full transition ${
+                          idx === projectIndex ? "bg-cyan-300 shadow-[0_0_0_6px_rgba(6,182,212,0.15)]" : "bg-slate-600"
+                        }`}
+                      />
+                    ))}
                   </div>
-                  <p className="mt-2 text-sm text-slate-300">{phase.body}</p>
+                  <button
+                    onClick={nextProject}
+                    className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-cyan-400/70 bg-cyan-500/15 text-cyan-50 transition hover:-translate-y-0.5 hover:bg-cyan-400/25"
+                    aria-label="Next project"
+                  >
+                    {">"}
+                  </button>
                 </div>
-              ))}
-            </div>
-          </div>
-          <div className="rounded-3xl border border-slate-800/80 bg-slate-950/70 p-8 shadow-lg shadow-cyan-500/5">
-            <p className="text-xs uppercase tracking-[0.3em] text-cyan-200">Want to help?</p>
-            <h3 className="mt-3 text-2xl font-semibold text-slate-50">Grab a role and jump in</h3>
-            <ul className="mt-4 space-y-3 text-sm text-slate-300">
-              <li className="rounded-xl border border-slate-800/70 bg-black/20 px-4 py-3">
-                Firmware & control: tune PIDs, integrate sensors, and harden failsafes.
-              </li>
-              <li className="rounded-xl border border-slate-800/70 bg-black/20 px-4 py-3">
-                Airframes: CAD reviews, composite layups, and crash-friendly tweaks.
-              </li>
-              <li className="rounded-xl border border-slate-800/70 bg-black/20 px-4 py-3">
-                Ground station: React UI, mission planning UX, and telemetry dashboards.
-              </li>
-              <li className="rounded-xl border border-slate-800/70 bg-black/20 px-4 py-3">
-                Flight ops: checklists, safety officers, and field test coordination.
-              </li>
-            </ul>
-            <div className="mt-5 flex flex-wrap gap-3">
-              <a
-                href="mailto:lift@hvl.no"
-                className="inline-flex items-center gap-2 rounded-full bg-cyan-400 px-5 py-3 font-semibold text-gray-950 shadow-[0_0_25px_-8px_rgba(6,182,212,0.6)] transition hover:-translate-y-0.5 hover:bg-cyan-300"
-              >
-                Join a project
-                <span aria-hidden>{"->"}</span>
-              </a>
-              <a
-                href="/team"
-                className="inline-flex items-center gap-2 rounded-full border border-slate-800/80 px-5 py-3 font-semibold text-slate-200 transition hover:-translate-y-0.5 hover:border-cyan-400/70 hover:text-cyan-100"
-              >
-                Meet the team
-              </a>
+                <div className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">
+                  {projectIndex + 1}/{projectCards.length} builds
+                </div>
+              </div>
             </div>
           </div>
         </section>
       </main>
+      <Footer />
     </div>
   );
 }
