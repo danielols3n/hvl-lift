@@ -6,8 +6,8 @@ const socialLinks = [
 
 export function Footer() {
   return (
-    <footer className="mt-24 border-t border-slate-800/60 bg-gradient-to-r from-slate-950/90 via-slate-900/90 to-slate-950/90 text-slate-200">
-      <div className="pointer-events-none absolute inset-x-0 h-px bg-gradient-to-r from-transparent via-cyan-500/40 to-transparent" />
+    <footer className="relative mt-24 border-t border-slate-800/60 bg-[#0d1f33] text-slate-200">
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-12 bg-gradient-to-b from-cyan-400/18 to-transparent" />
       <div className="relative mx-auto flex max-w-6xl flex-col gap-8 px-6 py-10 lg:flex-row lg:items-center lg:justify-between">
         <div className="space-y-3">
           <div className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.22em] text-cyan-200">
@@ -46,7 +46,7 @@ export function Footer() {
           </div>
         </div>
       </div>
-      <div className="border-t border-slate-800/60 bg-slate-950/90 py-4">
+      <div className="border-t border-slate-800/60 bg-[#0d1f33] py-4">
         <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-3 px-6 text-xs text-slate-400 sm:flex-row sm:items-center">
           <span>© {new Date().getFullYear()} HVL Lift. All rights reserved.</span>
           <span className="text-slate-500">Crafted by the student team.</span>
