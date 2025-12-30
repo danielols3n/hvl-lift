@@ -32,6 +32,14 @@ const memberGroups: { title: string; members: Member[] }[] = [
     ],
   },
   {
+    title: "Avionics",
+    members: [
+      { name: "Tobias Lunde", role: "Power & ESCs", avatar: "TL" },
+      { name: "Kaja Olsen", role: "Avionics Integration", avatar: "KO" },
+      { name: "Martin Dale", role: "Telemetry & RF", avatar: "MD" },
+    ],
+  },
+  {
     title: "Autonomy",
     members: [
       { name: "Nora Sand", role: "Perception & CV", avatar: "NS" },
@@ -118,11 +126,11 @@ export function TeamPage() {
             </div>
             <div className="grid gap-4 sm:grid-cols-2">
               <div className="rounded-2xl border border-slate-800/80 bg-white/5 px-4 py-5 backdrop-blur">
-                <div className="text-2xl font-semibold text-cyan-300">30+</div>
+                <div className="text-2xl font-semibold text-cyan-300">4</div>
                 <div className="mt-1 text-sm uppercase tracking-wide text-slate-400">Active members</div>
               </div>
               <div className="rounded-2xl border border-slate-800/80 bg-white/5 px-4 py-5 backdrop-blur">
-                <div className="text-2xl font-semibold text-cyan-300">5</div>
+                <div className="text-2xl font-semibold text-cyan-300">6</div>
                 <div className="mt-1 text-sm uppercase tracking-wide text-slate-400">Focus groups</div>
               </div>
             </div>

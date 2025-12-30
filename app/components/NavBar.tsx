@@ -30,7 +30,7 @@ export function NavBar() {
               </a>
             ))}
             <a
-              href="mailto:lift@hvl.no"
+              href="mailto:hello@hvl-lift.no"
               className="inline-flex items-center gap-2 rounded-full border border-cyan-300/60 bg-cyan-500/15 px-4 py-2 font-semibold text-cyan-100 transition hover:-translate-y-0.5 hover:bg-cyan-400/20 hover:text-cyan-50 md:ml-6"
             >
               Contact

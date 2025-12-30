@@ -39,13 +39,16 @@ export function HomePage() {
 
           <div className="grid items-center gap-12 lg:grid-cols-[1.05fr,0.95fr]">
             <div className="space-y-8">
-              <h1 className="text-4xl font-semibold leading-tight sm:text-5xl lg:text-6xl">
+              <h1 className="text-4xl font-semibold leading-tight text-slate-50 sm:text-5xl lg:text-6xl">
+                We are LIFT - lifting innovation, creativity and real-word experience through hands-on drone engineering.
+              </h1>
+              <h2 className="text-xl font-semibold leading-tight text-slate-100 sm:text-xl lg:text-2xl">
                 Building drones that{" "}
                 <span className="bg-gradient-to-r from-cyan-400 via-emerald-300 to-sky-400 bg-clip-text text-transparent">
                   fly smarter
                 </span>{" "}
                 and go further.
-              </h1>
+              </h2>
               <p className="text-lg text-slate-300 sm:text-xl">
                 HVL Lift is the student team crafting high-performance UAVs - designing airframes, writing flight software,
                 and pushing new pilots into the sky. Join the crew and ship your next build.

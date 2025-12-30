@@ -20,8 +20,8 @@ export function Footer() {
             <div>Norge</div>
           </div>
           <div className="text-sm text-slate-300">
-            <div>Email: <a className="text-cyan-200 hover:text-cyan-100" href="mailto:lift@hvl.no">lift@hvl.no</a></div>
-            <div>Telefon: <a className="text-cyan-200 hover:text-cyan-100" href="tel:+4755555555">+47 55 55 55 55</a></div>
+            <div>Email: <a className="text-cyan-200 hover:text-cyan-100" href="mailto:hello@hvl-lift.no">hello@hvl-lift.no</a></div>
+            <div>Telefon: <a className="text-cyan-200 hover:text-cyan-100" href="tel:+4798663863">+47 986 63 863</a></div>
           </div>
         </div>
 
