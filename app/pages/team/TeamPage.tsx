@@ -8,12 +8,10 @@ type Member = {
 };
 
 const board: Member[] = [
-  { name: "Ingrid Nilsen", role: "President", avatar: "IN" },
-  { name: "Jonas Eide", role: "Vice President", avatar: "JE" },
-  { name: "Sara Vik", role: "Operations Lead", avatar: "SV" },
-  { name: "Mads Holte", role: "Technical Lead", avatar: "MH" },
-  { name: "Emma Berg", role: "Finance & Sponsorships", avatar: "EB" },
-  { name: "Lars Haugen", role: "Events & Outreach", avatar: "LH" },
+  { name: "Daniel Olsen", role: "Leader", avatar: "DO" },
+  { name: "Bawan Mohammed Bawla", role: "Deputy Leader", avatar: "BB" },
+  { name: "Erlend Snipen", role: "Mechanical Lead", avatar: "ES" },
+  { name: "Viktor Rindsem", role: "Electrical Lead", avatar: "VR" },
 ];
 
 const memberGroups: { title: string; members: Member[] }[] = [
@@ -61,7 +59,7 @@ const memberGroups: { title: string; members: Member[] }[] = [
 
 function Avatar({ initials }: { initials: string }) {
   return (
-    <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-cyan-400/30 bg-gradient-to-br from-cyan-500/20 via-slate-900/70 to-emerald-400/15 text-lg font-semibold text-cyan-100 shadow-[0_10px_30px_-15px_rgba(6,182,212,0.7)]">
+    <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-cyan-400/30 bg-gradient-to-br from-cyan-500/20 via-slate-900/70 to-emerald-400/15 text-lg font-semibold text-cyan-100">
       {initials}
     </div>
   );
@@ -69,7 +67,7 @@ function Avatar({ initials }: { initials: string }) {
 
 function MemberCard({ member }: { member: Member }) {
   return (
-    <div className="flex items-center gap-4 rounded-2xl border border-slate-800/70 bg-gradient-to-br from-slate-950/70 via-slate-900/70 to-slate-950/70 p-4 shadow-lg shadow-cyan-500/5">
+    <div className="flex items-center gap-4 rounded-2xl border border-slate-800/70 bg-gradient-to-br from-slate-950/70 via-slate-900/70 to-slate-950/70 p-4">
       <Avatar initials={member.avatar} />
       <div>
         <div className="text-sm uppercase tracking-[0.16em] text-cyan-200">{member.role}</div>
@@ -105,7 +103,7 @@ export function TeamPage() {
               <div className="flex flex-wrap gap-3">
                 <a
                   href="mailto:lift@hvl.no"
-                  className="inline-flex items-center gap-2 rounded-full bg-cyan-400 px-6 py-3 font-semibold text-gray-950 shadow-[0_0_35px_-8px_rgba(6,182,212,0.6)] transition hover:-translate-y-0.5 hover:bg-cyan-300"
+                  className="inline-flex items-center gap-2 rounded-full bg-cyan-400 px-6 py-3 font-semibold text-gray-950 transition hover:-translate-y-0.5 hover:bg-cyan-300"
                 >
                   Join the team
                   <span aria-hidden>{"->"}</span>
@@ -119,21 +117,13 @@ export function TeamPage() {
               </div>
             </div>
             <div className="grid gap-4 sm:grid-cols-2">
-              <div className="rounded-2xl border border-slate-800/80 bg-white/5 px-4 py-5 shadow-lg shadow-cyan-500/5 backdrop-blur">
-                <div className="text-2xl font-semibold text-cyan-300">14</div>
-                <div className="mt-1 text-sm uppercase tracking-wide text-slate-400">Board & leads</div>
-              </div>
-              <div className="rounded-2xl border border-slate-800/80 bg-white/5 px-4 py-5 shadow-lg shadow-cyan-500/5 backdrop-blur">
+              <div className="rounded-2xl border border-slate-800/80 bg-white/5 px-4 py-5 backdrop-blur">
                 <div className="text-2xl font-semibold text-cyan-300">30+</div>
                 <div className="mt-1 text-sm uppercase tracking-wide text-slate-400">Active members</div>
               </div>
-              <div className="rounded-2xl border border-slate-800/80 bg-white/5 px-4 py-5 shadow-lg shadow-cyan-500/5 backdrop-blur">
+              <div className="rounded-2xl border border-slate-800/80 bg-white/5 px-4 py-5 backdrop-blur">
                 <div className="text-2xl font-semibold text-cyan-300">5</div>
                 <div className="mt-1 text-sm uppercase tracking-wide text-slate-400">Focus groups</div>
-              </div>
-              <div className="rounded-2xl border border-slate-800/80 bg-white/5 px-4 py-5 shadow-lg shadow-cyan-500/5 backdrop-blur">
-                <div className="text-2xl font-semibold text-cyan-300">24/7</div>
-                <div className="mt-1 text-sm uppercase tracking-wide text-slate-400">Hangar access</div>
               </div>
             </div>
           </div>

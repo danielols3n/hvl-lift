@@ -35,7 +35,7 @@ export function Footer() {
               <a
                 key={link.label}
                 href={link.href}
-                className="inline-flex items-center gap-2 rounded-full border border-slate-800/70 bg-slate-900/70 px-4 py-2 text-sm font-semibold text-slate-200 shadow-[0_8px_25px_-16px_rgba(6,182,212,0.6)] transition hover:-translate-y-0.5 hover:border-cyan-300/70 hover:text-cyan-100"
+                className="inline-flex items-center gap-2 rounded-full border border-slate-800/70 bg-slate-900/70 px-4 py-2 text-sm font-semibold text-slate-200 transition hover:-translate-y-0.5 hover:border-cyan-300/70 hover:text-cyan-100"
               >
                 <span className="flex h-7 w-7 items-center justify-center rounded-full border border-cyan-400/40 bg-cyan-500/10 text-xs font-bold text-cyan-100">
                   {link.icon}

@@ -87,7 +87,7 @@ export function ProjectsPage() {
               <div className="flex flex-wrap gap-3">
                 <a
                   href="mailto:lift@hvl.no"
-                  className="inline-flex items-center gap-2 rounded-full bg-cyan-400 px-6 py-3 font-semibold text-gray-950 shadow-[0_0_35px_-8px_rgba(6,182,212,0.6)] transition hover:-translate-y-0.5 hover:bg-cyan-300"
+                  className="inline-flex items-center gap-2 rounded-full bg-cyan-400 px-6 py-3 font-semibold text-gray-950 transition hover:-translate-y-0.5 hover:bg-cyan-300"
                 >
                   Propose a project
                   <span aria-hidden>{"->"}</span>
@@ -104,7 +104,7 @@ export function ProjectsPage() {
               {highlights.map((item) => (
                 <div
                   key={item.label}
-                  className="rounded-2xl border border-slate-800/80 bg-white/5 px-4 py-5 shadow-lg shadow-cyan-500/5 backdrop-blur"
+                  className="rounded-2xl border border-slate-800/80 bg-white/5 px-4 py-5 backdrop-blur"
                 >
                   <div className="text-2xl font-semibold text-cyan-300">{item.value}</div>
                   <div className="mt-1 text-sm uppercase tracking-wide text-slate-400">{item.label}</div>
@@ -115,14 +115,14 @@ export function ProjectsPage() {
         </section>
 
         <section className="mt-14 grid gap-6 lg:grid-cols-[1.05fr,0.95fr]">
-          <div className="rounded-3xl border border-cyan-500/25 bg-gradient-to-br from-cyan-500/10 via-slate-900/70 to-emerald-400/10 p-7 shadow-[0_25px_80px_-45px_rgba(34,211,238,0.6)] backdrop-blur">
+          <div className="rounded-3xl border border-cyan-500/25 bg-gradient-to-br from-cyan-500/10 via-slate-900/70 to-emerald-400/10 p-7 backdrop-blur">
             <p className="text-xs uppercase tracking-[0.3em] text-cyan-200">Program stats</p>
             <h3 className="mt-3 text-2xl font-semibold text-slate-50">Signals from the fleet</h3>
             <ul className="mt-4 space-y-3">
               {missionStats.map((stat) => (
                 <li
                   key={stat.label}
-                  className="flex items-start gap-3 rounded-2xl border border-slate-800/70 bg-slate-900/30 px-4 py-3 shadow-lg shadow-cyan-500/5"
+                  className="flex items-start gap-3 rounded-2xl border border-slate-800/70 bg-slate-900/30 px-4 py-3"
                 >
                   <span className="mt-1 inline-flex h-8 w-8 items-center justify-center rounded-full border border-cyan-400/40 bg-cyan-500/10 text-sm font-semibold text-cyan-100">
                     *
@@ -152,10 +152,10 @@ export function ProjectsPage() {
               Swipe through
             </div>
           </div>
-          <div className="relative overflow-hidden rounded-3xl border border-slate-800/80 bg-gradient-to-b from-slate-950/60 to-slate-900/80 p-8 shadow-lg shadow-cyan-500/5">
+          <div className="relative overflow-hidden rounded-3xl border border-slate-800/80 bg-gradient-to-b from-slate-950/60 to-slate-900/80 p-8">
             <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(6,182,212,0.08),transparent_45%),radial-gradient(circle_at_85%_70%,rgba(52,211,153,0.08),transparent_45%)]" />
             <div className="relative space-y-6">
-              <article className="space-y-4 rounded-2xl border border-slate-800/70 bg-slate-950/60 p-6 shadow-lg shadow-cyan-500/5">
+              <article className="space-y-4 rounded-2xl border border-slate-800/70 bg-slate-950/60 p-6">
                 <div className="inline-flex items-center gap-2 rounded-full bg-cyan-500/10 px-3 py-1 text-xs font-semibold text-cyan-200">
                   <span className="h-2 w-2 rounded-full bg-emerald-400" aria-hidden />
                   {currentProject.status}
@@ -187,7 +187,7 @@ export function ProjectsPage() {
                       <span
                         key={idx}
                         className={`h-2.5 w-2.5 rounded-full transition ${
-                          idx === projectIndex ? "bg-cyan-300 shadow-[0_0_0_6px_rgba(6,182,212,0.15)]" : "bg-slate-600"
+                          idx === projectIndex ? "bg-cyan-300" : "bg-slate-600"
                         }`}
                       />
                     ))}
