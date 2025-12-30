@@ -12,12 +12,16 @@ const tracks = [
     body: "Composite frames, rapid prototyping, and aerodynamic tuning tailored for long-range and race builds.",
   },
   {
-    title: "Avionics & Control",
+    title: "Electronics & Avionics",
     body: "Flight controllers, radio links, and telemetry stacks with live dashboards and black-box logging.",
   },
   {
     title: "Autonomy & AI",
     body: "Path-planning, computer vision, and on-board models that help our drones see, map, and react.",
+  },
+  {
+    title: "Flight Ops & Testing",
+    body: "Safety protocols, pilot training, and field testing to validate every build before it flies.",
   },
 ];
 
@@ -93,11 +97,11 @@ export function HomePage() {
               </p>
             </div>
           </div>
-          <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3">
+          <div className="grid grid-cols-[repeat(auto-fit,minmax(240px,1fr))] justify-items-center gap-6">
             {tracks.map((track) => (
               <article
                 key={track.title}
-                className="rounded-2xl border border-slate-800/80 bg-gradient-to-b from-slate-950/60 to-slate-900/80 p-6 transition hover:-translate-y-1 hover:border-cyan-400/60"
+                className="w-full max-w-sm rounded-2xl border border-slate-800/80 bg-gradient-to-b from-slate-950/60 to-slate-900/80 p-6 transition hover:-translate-y-1 hover:border-cyan-400/60"
               >
                 <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-cyan-500/10 text-cyan-200">
                   <span aria-hidden>*</span>
@@ -135,7 +139,7 @@ export function HomePage() {
           </p>
           <div className="flex flex-wrap justify-center gap-3">
             <a
-              href="mailto:lift@hvl.no"
+              href="mailto:hello@hvl-lift.no"
               className="inline-flex items-center gap-2 rounded-full bg-cyan-400 px-6 py-3 font-semibold text-gray-950 transition hover:-translate-y-0.5 hover:bg-cyan-300"
             >
               Contact the team
