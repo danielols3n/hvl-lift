@@ -29,7 +29,7 @@ export function HomePage() {
 
       <NavBar />
 
-      <main className="relative mx-auto max-w-6xl px-6 pb-24">
+      <main className="relative mx-auto max-w-6xl px-4 pb-24 sm:px-6">
         <section className="flex flex-col gap-12 pt-16 lg:pt-24">
           <div className="flex items-center gap-3 text-xs uppercase tracking-[0.35em] text-cyan-300">
             <span className="h-px w-10 bg-cyan-500" />
@@ -65,7 +65,7 @@ export function HomePage() {
                   See what we build
                 </a>
               </div>
-              <div className="grid gap-4 sm:grid-cols-3">
+              <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
                 {stats.map((stat) => (
                   <div
                     key={stat.label}
@@ -90,7 +90,7 @@ export function HomePage() {
               </p>
             </div>
           </div>
-          <div className="grid gap-6 md:grid-cols-3">
+          <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3">
             {tracks.map((track) => (
               <article
                 key={track.title}

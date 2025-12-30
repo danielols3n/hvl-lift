@@ -87,7 +87,7 @@ export function TeamPage() {
 
       <NavBar />
 
-      <main className="relative mx-auto max-w-6xl px-6 pb-24">
+      <main className="relative mx-auto max-w-6xl px-4 pb-24 sm:px-6">
         <section className="flex flex-col gap-10 pt-16 lg:pt-24">
           <div className="flex items-center gap-3 text-xs uppercase tracking-[0.35em] text-cyan-300">
             <span className="h-px w-10 bg-cyan-500" />
