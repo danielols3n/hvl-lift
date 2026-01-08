@@ -2,8 +2,8 @@ import { NavBar } from "../../components/NavBar";
 import { Footer } from "../../components/Footer";
 
 const stats = [
-  { label: "Active members", value: "120+" },
-  { label: "Airframes built", value: "18" },
+  { label: "Active members", value: "4" },
+  // { label: "Airframes built", value: "0" },
 ];
 
 const tracks = [
@@ -37,7 +37,7 @@ export function HomePage() {
         <section className="flex flex-col gap-12 pt-16 lg:pt-24">
           <div className="flex items-center gap-3 text-xs uppercase tracking-[0.35em] text-cyan-300">
             <span className="h-px w-10 bg-cyan-500" />
-            HVL Lift | Student Drone Lab
+            HVL Lift | Student Drone Team
             <span className="h-px w-10 bg-cyan-500" />
           </div>
 
@@ -55,7 +55,7 @@ export function HomePage() {
               </h2>
               <p className="text-lg text-slate-300 sm:text-xl">
                 HVL Lift is the student team crafting high-performance UAVs - designing airframes, writing flight software,
-                and pushing new pilots into the sky. Join the crew and ship your next build.
+                and pushing new pilots into the sky. Join the crew and start lifting your skills to the sky.
               </p>
               <div className="flex flex-wrap items-center gap-4">
                 <a
