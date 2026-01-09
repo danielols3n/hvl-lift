@@ -18,49 +18,37 @@ const memberGroups: { title: string; members: Member[] }[] = [
   {
     title: "Mechanical",
     members: [
-      { name: "Andrea Solheim", role: "Airframes & Composites", avatar: "AS" },
-      { name: "Henrik Ruud", role: "CAD & Prototyping", avatar: "HR" },
-      { name: "Silje Aas", role: "Propulsion & Cooling", avatar: "SA" },
+      
     ],
   },
   {
     title: "Electrical",
     members: [
-      { name: "Tobias Lunde", role: "Power & ESCs", avatar: "TL" },
-      { name: "Kaja Olsen", role: "Avionics Integration", avatar: "KO" },
-      { name: "Martin Dale", role: "Telemetry & RF", avatar: "MD" },
+      
     ],
   },
   {
     title: "Avionics",
     members: [
-      { name: "Tobias Lunde", role: "Power & ESCs", avatar: "TL" },
-      { name: "Kaja Olsen", role: "Avionics Integration", avatar: "KO" },
-      { name: "Martin Dale", role: "Telemetry & RF", avatar: "MD" },
+      
     ],
   },
   {
     title: "Autonomy",
     members: [
-      { name: "Nora Sand", role: "Perception & CV", avatar: "NS" },
-      { name: "Sindre Haug", role: "Navigation & Planning", avatar: "SH" },
-      { name: "Elias Moe", role: "Onboard ML", avatar: "EM" },
+      
     ],
   },
   {
     title: "Flight Ops",
     members: [
-      { name: "Ida Wang", role: "Safety & Checklists", avatar: "IW" },
-      { name: "Petter Aune", role: "Field Testing", avatar: "PA" },
-      { name: "Tuva Arnesen", role: "Pilot Training", avatar: "TA" },
+      
     ],
   },
   {
     title: "Administration",
     members: [
-      { name: "Oda Nymo", role: "Communications", avatar: "ON" },
-      { name: "Eirik Foss", role: "Sponsors & Partners", avatar: "EF" },
-      { name: "Sofia Lien", role: "Logistics", avatar: "SL" },
+      
     ],
   },
 ];
@@ -110,7 +98,7 @@ export function TeamPage() {
               </p>
               <div className="flex flex-wrap gap-3">
                 <a
-                  href="mailto:lift@hvl.no"
+                  href="mailto:hello@hvl-lift.no"
                   className="inline-flex items-center gap-2 rounded-full bg-cyan-400 px-6 py-3 font-semibold text-gray-950 transition hover:-translate-y-0.5 hover:bg-cyan-300"
                 >
                   Join the team
@@ -162,9 +150,13 @@ export function TeamPage() {
                   {group.title}
                 </div>
                 <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                  {group.members.map((member) => (
-                    <MemberCard key={member.name} member={member} />
-                  ))}
+                  {group.members.length === 0 ? (
+                    <div className="rounded-2xl border border-dashed border-cyan-500/40 bg-slate-900/40 px-4 py-6 text-sm text-slate-300">
+                      Come join the {group.title} team!
+                    </div>
+                  ) : (
+                    group.members.map((member) => <MemberCard key={member.name} member={member} />)
+                  )}
                 </div>
               </div>
             ))}

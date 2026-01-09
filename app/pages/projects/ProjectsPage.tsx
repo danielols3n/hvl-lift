@@ -2,55 +2,37 @@ import { useState } from "react";
 import { NavBar } from "../../components/NavBar";
 import { Footer } from "../../components/Footer";
 
-const projectCards = [
+const statusColorClasses = {
+  red: { badge: "bg-rose-500/15 text-rose-200", dot: "bg-rose-400" },
+  yellow: { badge: "bg-amber-500/15 text-amber-200", dot: "bg-amber-400" },
+  green: { badge: "bg-emerald-500/15 text-emerald-200", dot: "bg-emerald-400" },
+} as const;
+
+type StatusColor = keyof typeof statusColorClasses;
+
+const projectCards: Array<{
+  title: string;
+  status: string;
+  statusColor: StatusColor;
+  summary: string;
+  tags: string[];
+}> = [
   {
-    title: "Valkyrie FPV",
-    status: "Flight testing",
-    summary: "240 km/h FPV racer with digital video, active cooling, and current draw overlays on the OSD.",
-    tags: ["FPV", "Racing", "Telemetry"],
-  },
-  {
-    title: "Aurora Surveyor",
-    status: "In assembly",
-    summary: "Autonomous mapping platform with RTK GPS, gimbal payload, and LiDAR mockups for simulation.",
-    tags: ["Mapping", "RTK", "Autonomy"],
-  },
-  {
-    title: "Lift Core",
-    status: "Open source",
-    summary: "TypeScript mission planner and React ground station with modular widgets for your own builds.",
-    tags: ["Software", "UI", "Open Source"],
-  },
-  {
-    title: "Northwind VTOL",
-    status: "Design review",
-    summary: "Hybrid tilt-rotor with carbon spar wings, targeting 55 min endurance on 6S Li-ion packs.",
-    tags: ["VTOL", "CAD", "Endurance"],
-  },
-  {
-    title: "Firefly Micro",
-    status: "Testing",
-    summary: "Sub-250g trainer with durable TPU canopy, ELRS link, and beginner-friendly tuning presets.",
-    tags: ["Trainer", "Lightweight", "ELRS"],
-  },
-  {
-    title: "Nightshade Cine",
-    status: "Prototype",
-    summary: "Cinematic quad with stabilized payload, ND filter kit, and noise-dampened prop selection.",
-    tags: ["Cinematic", "Payload", "Noise"],
+    title: "Pilot",
+    status: "Planning",
+    statusColor: "red",
+    summary: "Our first drone with the goal of building our own drone and RC controller from scratch.",
+    tags: ["Telemetry", "Beginner-friendly", "Sensors"],
   },
 ];
 
 const highlights = [
-  { label: "Active builds", value: "6" },
-  { label: "Contributors", value: "45" },
+  { label: "Active builds", value: "1" },
+  { label: "Contributors", value: "4" },
 ];
 
 const missionStats = [
-  { label: "Longest endurance", value: "54 min", detail: "Northwind VTOL on 6S Li-ion" },
-  { label: "Fastest pass", value: "242 km/h", detail: "Valkyrie FPV over runway 18" },
-  { label: "Telemetry uptime", value: "99.1%", detail: "Rolling 30-day field tests" },
-  { label: "Lines of flight code", value: "84k", detail: "Across avionics + ground station" },
+  { label: "No stats from the current missions yet...", value: "-", detail: "" },
 ];
 
 export function ProjectsPage() {
@@ -86,7 +68,7 @@ export function ProjectsPage() {
               </p>
               <div className="flex flex-wrap gap-3">
                 <a
-                  href="mailto:lift@hvl.no"
+                  href="mailto:hello@hvl-lift.no"
                   className="inline-flex items-center gap-2 rounded-full bg-cyan-400 px-6 py-3 font-semibold text-gray-950 transition hover:-translate-y-0.5 hover:bg-cyan-300"
                 >
                   Propose a project
@@ -156,8 +138,13 @@ export function ProjectsPage() {
             <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(6,182,212,0.08),transparent_45%),radial-gradient(circle_at_85%_70%,rgba(52,211,153,0.08),transparent_45%)]" />
             <div className="relative space-y-6">
               <article className="space-y-4 rounded-2xl border border-slate-800/70 bg-slate-950/60 p-6">
-                <div className="inline-flex items-center gap-2 rounded-full bg-cyan-500/10 px-3 py-1 text-xs font-semibold text-cyan-200">
-                  <span className="h-2 w-2 rounded-full bg-emerald-400" aria-hidden />
+                <div
+                  className={`inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-semibold ${statusColorClasses[currentProject.statusColor].badge}`}
+                >
+                  <span
+                    className={`h-2 w-2 rounded-full ${statusColorClasses[currentProject.statusColor].dot}`}
+                    aria-hidden
+                  />
                   {currentProject.status}
                 </div>
                 <h3 className="text-2xl font-semibold text-slate-50">{currentProject.title}</h3>
