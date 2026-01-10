@@ -50,7 +50,7 @@ export function HomePage() {
                 and go further.
               </h2>
               <p className="text-lg text-slate-300 sm:text-xl">
-                HVL Lift is the student team crafting high-performance UAVs - designing airframes, writing flight software,
+                Lift HVL is the student team crafting high-performance UAVs - designing airframes, writing flight software,
                 and pushing new pilots into the sky. Join the crew and start lifting your skills to the sky.
               </p>
               <div className="flex flex-wrap items-center gap-4">
