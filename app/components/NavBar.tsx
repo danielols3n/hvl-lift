@@ -16,7 +16,7 @@ export function NavBar() {
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_50%,rgba(6,182,212,0.18),transparent_45%),radial-gradient(circle_at_80%_50%,rgba(52,211,153,0.16),transparent_45%)] opacity-70" />
           <div className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.22em] text-cyan-200">
             <span className="h-px w-8 bg-cyan-500" />
-            HVL Lift
+            Lift HVL
           </div>
           <div className="flex-1" />
           <div className="hidden flex-wrap items-center gap-2 text-sm font-medium text-slate-200 md:flex">
@@ -30,7 +30,7 @@ export function NavBar() {
               </a>
             ))}
             <a
-              href="mailto:hello@hvl-lift.no"
+              href="mailto:hello@lifthvl.no"
               className="inline-flex items-center gap-2 rounded-full border border-cyan-300/60 bg-cyan-500/15 px-4 py-2 font-semibold text-cyan-100 transition hover:-translate-y-0.5 hover:bg-cyan-400/20 hover:text-cyan-50 md:ml-6"
             >
               Contact
@@ -66,7 +66,7 @@ export function NavBar() {
               </a>
             ))}
             <a
-              href="mailto:lift@hvl.no"
+              href="mailto:hello@lifthvl.no"
               className="flex items-center justify-between rounded-xl border border-cyan-300/60 bg-cyan-500/15 px-4 py-3 text-sm font-semibold text-cyan-100 transition hover:-translate-y-0.5 hover:bg-cyan-400/20 hover:text-cyan-50"
               onClick={() => setIsOpen(false)}
             >

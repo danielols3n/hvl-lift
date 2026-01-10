@@ -12,7 +12,7 @@ export function Footer() {
         <div className="space-y-3">
           <div className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.22em] text-cyan-200">
             <span className="h-px w-8 bg-cyan-500" />
-            HVL Lift
+            Lift HVL
           </div>
           <div className="text-sm text-slate-300">
             <div>Høgskulen på Vestlandet</div>
@@ -20,8 +20,7 @@ export function Footer() {
             <div>Norge</div>
           </div>
           <div className="text-sm text-slate-300">
-            <div>Email: <a className="text-cyan-200 hover:text-cyan-100" href="mailto:hello@hvl-lift.no">hello@hvl-lift.no</a></div>
-            <div>Telefon: <a className="text-cyan-200 hover:text-cyan-100" href="tel:+4798663863">+47 986 63 863</a></div>
+            <div>Email: <a className="text-cyan-200 hover:text-cyan-100" href="mailto:hello@lifthvl.no">hello@lifthvl.no</a></div>
           </div>
         </div>
 
@@ -48,7 +47,7 @@ export function Footer() {
       </div>
       <div className="border-t border-slate-800/60 bg-[#0d1f33] py-4">
         <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-3 px-6 text-xs text-slate-400 sm:flex-row sm:items-center">
-          <span>© {new Date().getFullYear()} HVL Lift. All rights reserved.</span>
+          <span>© {new Date().getFullYear()} Lift HVL. All rights reserved.</span>
           <span className="text-slate-500">Crafted by the student team.</span>
         </div>
       </div>

@@ -10,43 +10,40 @@ type Member = {
 const board: Member[] = [
   { name: "Daniel Olsen", role: "Leader", avatar: "DO" },
   { name: "Bawan Mohammed Bawla", role: "Deputy Leader", avatar: "BB" },
-  { name: "Erlend Snipen", role: "Mechanical Lead", avatar: "ES" },
-  { name: "Viktor Rindsem", role: "Electrical Lead", avatar: "VR" },
+  { name: "Erlend Snipen", role: "Board Member", avatar: "ES" },
+  { name: "Viktor Rindsem", role: "Board Member", avatar: "VR" },
 ];
 
 const memberGroups: { title: string; members: Member[] }[] = [
   {
     title: "Mechanical",
     members: [
-      
+      { name: "Daniel Olsen", role: "Mechanical Lead", avatar: "DO" },
     ],
   },
   {
-    title: "Electrical",
+    title: "Hardware",
     members: [
-      
+      { name: "Viktor Rindsem", role: "Hardware Lead", avatar: "VR" },
+      { name: "Bawan Mohammed Bawla", role: "Hardware Lead", avatar: "BB" },
     ],
   },
   {
-    title: "Avionics",
+    title: "Software",
     members: [
-      
+      { name: "Daniel Olsen", role: "Software Lead", avatar: "DO" },
+      { name: "Erlend Snipen", role: "Member", avatar: "ES" },
     ],
   },
   {
-    title: "Autonomy",
+    title: "Communications",
     members: [
-      
+      { name: "Erlend Snipen", role: "Communications Lead", avatar: "ES" },
+      { name: "Daniel Olsen", role: "Member", avatar: "DO" },
     ],
   },
   {
-    title: "Flight Ops",
-    members: [
-      
-    ],
-  },
-  {
-    title: "Administration",
+    title: "Administration & Media",
     members: [
       
     ],
@@ -98,7 +95,7 @@ export function TeamPage() {
               </p>
               <div className="flex flex-wrap gap-3">
                 <a
-                  href="mailto:hello@hvl-lift.no"
+                  href="mailto:hello@lifthvl.no"
                   className="inline-flex items-center gap-2 rounded-full bg-cyan-400 px-6 py-3 font-semibold text-gray-950 transition hover:-translate-y-0.5 hover:bg-cyan-300"
                 >
                   Join the team
@@ -118,7 +115,7 @@ export function TeamPage() {
                 <div className="mt-1 text-sm uppercase tracking-wide text-slate-400">Active members</div>
               </div>
               <div className="rounded-2xl border border-slate-800/80 bg-white/5 px-4 py-5 backdrop-blur">
-                <div className="text-2xl font-semibold text-cyan-300">6</div>
+                <div className="text-2xl font-semibold text-cyan-300">5</div>
                 <div className="mt-1 text-sm uppercase tracking-wide text-slate-400">Focus groups</div>
               </div>
             </div>

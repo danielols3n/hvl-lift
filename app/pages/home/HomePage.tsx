@@ -19,10 +19,6 @@ const tracks = [
     title: "Autonomy & AI",
     body: "Path-planning, computer vision, and on-board models that help our drones see, map, and react.",
   },
-  {
-    title: "Flight Ops & Testing",
-    body: "Safety protocols, pilot training, and field testing to validate every build before it flies.",
-  },
 ];
 
 export function HomePage() {
@@ -37,7 +33,7 @@ export function HomePage() {
         <section className="flex flex-col gap-12 pt-16 lg:pt-24">
           <div className="flex items-center gap-3 text-xs uppercase tracking-[0.35em] text-cyan-300">
             <span className="h-px w-10 bg-cyan-500" />
-            HVL Lift | Student Drone Team
+            Lift HVL | Student Drone Team
             <span className="h-px w-10 bg-cyan-500" />
           </div>
 
@@ -59,14 +55,14 @@ export function HomePage() {
               </p>
               <div className="flex flex-wrap items-center gap-4">
                 <a
-                  href="#projects"
+                  href="mailto:hello@lifthvl.no"
                   className="inline-flex items-center gap-2 rounded-full bg-cyan-400 px-6 py-3 font-semibold text-gray-950 transition hover:-translate-y-0.5 hover:bg-cyan-300"
                 >
                   Join the flight crew
                   <span aria-hidden>{"->"}</span>
                 </a>
                 <a
-                  href="#projects"
+                  href="projects"
                   className="inline-flex items-center gap-2 rounded-full border border-slate-800/80 px-6 py-3 font-semibold text-slate-200 transition hover:-translate-y-0.5 hover:border-cyan-400/70 hover:text-cyan-100"
                 >
                   See what we build
@@ -93,7 +89,7 @@ export function HomePage() {
               <p className="text-xs uppercase tracking-[0.25em] text-cyan-300">What we build</p>
               <h2 className="text-3xl font-semibold text-slate-50 sm:text-4xl">Hardware and firmware in the lab</h2>
               <p className="mt-2 max-w-3xl text-slate-300">
-                Small teams own end-to-end missions: CAD to carbon, ESC calibration to ground control UX.
+                Small teams own end-to-end missions: CAD to carbon, avionics calibration to ground control UX.
               </p>
             </div>
           </div>
@@ -134,12 +130,12 @@ export function HomePage() {
           <p className="text-xs uppercase tracking-[0.3em] text-cyan-200">Ready to build</p>
           <h2 className="text-3xl font-semibold text-slate-50 sm:text-4xl">Your next launch starts here</h2>
           <p className="mx-auto max-w-3xl text-slate-200">
-            Bring an idea, a 3D print, or a half-soldered frame. We'll supply flight sims, mentors, and a hangar full of
+            Bring an idea, a 3D print, or a half-soldered frame. We'll supply with knowledge, mentors, and a hangar full of
             tools. Let's get you flying.
           </p>
           <div className="flex flex-wrap justify-center gap-3">
             <a
-              href="mailto:hello@hvl-lift.no"
+              href="mailto:hello@lifthvl.no"
               className="inline-flex items-center gap-2 rounded-full bg-cyan-400 px-6 py-3 font-semibold text-gray-950 transition hover:-translate-y-0.5 hover:bg-cyan-300"
             >
               Contact the team
