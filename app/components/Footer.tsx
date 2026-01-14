@@ -1,6 +1,6 @@
 const socialLinks = [
-  { label: "Instagram", href: "https://instagram.com", icon: "IG" },
-  { label: "GitHub", href: "https://github.com", icon: "GH" },
+  { label: "Instagram", href: "https://instagram.com/lifthvl/", icon: "IG" },
+  { label: "GitHub", href: "https://github.com/Lift-HVL", icon: "GH" },
   { label: "LinkedIn", href: "https://linkedin.com", icon: "IN" },
 ];
 

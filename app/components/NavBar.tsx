@@ -1,4 +1,6 @@
 import { useState } from "react";
+import logo from "../assets/logo.png";
+import { useNavigate } from "react-router";
 
 const navLinks = [
   { label: "Home", href: "/" },
@@ -11,27 +13,31 @@ export function NavBar() {
 
   return (
     <nav className="sticky top-0 z-30">
-      <div className="mx-auto max-w-6xl px-4 py-3 sm:px-6 sm:py-4">
-        <div className="relative mx-auto flex max-w-6xl items-center gap-4 overflow-hidden rounded-full border border-slate-800/70 bg-gradient-to-r from-slate-950/90 via-slate-900/85 to-slate-950/90 px-4 py-3 backdrop-blur sm:px-6">
+      <div className="mx-auto max-w-6xl px-4 py-2 sm:px-6 sm:py-3">
+        <div className="relative mx-auto flex max-w-6xl items-center gap-4 overflow-hidden rounded-full border border-slate-800/70 bg-gradient-to-r from-slate-950/90 via-slate-900/85 to-slate-950/90 px-4 py-2 backdrop-blur sm:px-6">
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_50%,rgba(6,182,212,0.18),transparent_45%),radial-gradient(circle_at_80%_50%,rgba(52,211,153,0.16),transparent_45%)] opacity-70" />
-          <div className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.22em] text-cyan-200">
+          <div className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.22em] text-cyan-200 cursor-pointer" onClick={() => window.location.href='/'}>
             <span className="h-px w-8 bg-cyan-500" />
-            Lift HVL
+            <img
+              src={logo}
+              alt="Lift HVL logo"
+              className="h-25 w-25 object-contain"
+            />
           </div>
           <div className="flex-1" />
-          <div className="hidden flex-wrap items-center gap-2 text-sm font-medium text-slate-200 md:flex">
+          <div className="hidden flex-wrap items-center gap-3 text-sm font-medium text-slate-200 md:flex">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="rounded-full border border-slate-700/70 bg-white/5 px-4 py-2 text-sm font-semibold text-slate-100 transition hover:-translate-y-0.5 hover:border-cyan-300/80 hover:bg-white/12 hover:text-cyan-100"
+                className="rounded-full border border-slate-700/70 bg-white/5 px-5 py-2.5 text-sm font-semibold text-slate-100 transition hover:-translate-y-0.5 hover:border-cyan-300/80 hover:bg-white/12 hover:text-cyan-100"
               >
                 {link.label}
               </a>
             ))}
             <a
               href="mailto:hello@lifthvl.no"
-              className="inline-flex items-center gap-2 rounded-full border border-cyan-300/60 bg-cyan-500/15 px-4 py-2 font-semibold text-cyan-100 transition hover:-translate-y-0.5 hover:bg-cyan-400/20 hover:text-cyan-50 md:ml-6"
+              className="inline-flex items-center gap-2 rounded-full border border-cyan-300/60 bg-cyan-500/15 px-5 py-2.5 font-semibold text-cyan-100 transition hover:-translate-y-0.5 hover:bg-cyan-400/20 hover:text-cyan-50 md:ml-6"
             >
               Contact
               <span aria-hidden>{"->"}</span>
