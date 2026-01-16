@@ -55,6 +55,14 @@ export function HomePage() {
                 Lift HVL is the student team crafting high-performance UAVs - designing airframes, writing flight software,
                 and pushing new pilots into the sky. Join the crew and start lifting your skills to the sky.
               </p>
+              <aside className="rounded-2xl border border-amber-300/40 bg-amber-200/10 px-5 py-4 text-sm text-amber-100">
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-amber-200">Disclaimer</p>
+                <p className="mt-2 leading-relaxed">
+                  LIFT HVL is a student organization and does not conduct drone flights on behalf of Høgskulen på Vestlandet
+                  (HVL). All activity and public communication are carried out by the student team and should not be
+                  understood as operational flying or official activity under HVL.
+                </p>
+              </aside>
               <div className="flex flex-wrap items-center gap-4">
                 <a
                   href="mailto:hello@lifthvl.no"

@@ -50,6 +50,9 @@ export function Footer() {
           <span>© {new Date().getFullYear()} Lift HVL. All rights reserved.</span>
           <span className="text-slate-500">Crafted by the student team.</span>
         </div>
+        <div className="mx-auto mt-2 max-w-6xl px-6 text-xs text-slate-500">
+          LIFT HVL is a student organization and does not conduct drone flights on behalf of HVL.
+        </div>
       </div>
     </footer>
   );
