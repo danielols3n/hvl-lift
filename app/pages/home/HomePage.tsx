@@ -21,8 +21,6 @@ const tracks = [
   },
 ];
 
-const applicationLink = "https://forms.cloud.microsoft/e/nZGV7gBTz6";
-
 export function HomePage() {
   return (
     <div className="relative min-h-screen overflow-hidden bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 text-slate-100">
@@ -77,20 +75,6 @@ export function HomePage() {
                 >
                   See what we build
                 </a>
-              </div>
-              <div className="flex flex-wrap items-center gap-4">
-                <a
-                  href={applicationLink}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full border border-emerald-200/80 bg-emerald-300 px-7 py-3.5 text-base font-semibold text-slate-950 shadow-[0_0_22px_rgba(52,211,153,0.5)] transition hover:-translate-y-0.5 hover:bg-emerald-200 hover:shadow-[0_0_28px_rgba(52,211,153,0.6)]"
-                >
-                  Apply to Lift
-                  <span aria-hidden>{"->"}</span>
-                </a>
-                <p className="text-base font-semibold text-emerald-100">
-                  Applications are open now - it takes 2 minutes and helps us plan the next intake.
-                </p>
               </div>
               <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
                 {stats.map((stat) => (

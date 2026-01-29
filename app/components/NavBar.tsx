@@ -7,8 +7,6 @@ const navLinks = [
   { label: "Our team", href: "/team" },
 ];
 
-const applicationLink = "https://forms.cloud.microsoft/e/nZGV7gBTz6";
-
 export function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -36,15 +34,6 @@ export function NavBar() {
                 {link.label}
               </a>
             ))}
-            <a
-              href={applicationLink}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-2 rounded-full border border-emerald-200/80 bg-emerald-300 px-5 py-2.5 font-semibold text-slate-950 shadow-[0_0_18px_rgba(52,211,153,0.45)] transition hover:-translate-y-0.5 hover:bg-emerald-200 hover:shadow-[0_0_24px_rgba(52,211,153,0.6)]"
-            >
-              Apply to Lift
-              <span aria-hidden>{"->"}</span>
-            </a>
             <a
               href="mailto:hello@lifthvl.no"
               className="inline-flex items-center gap-2 rounded-full border border-cyan-300/60 bg-cyan-500/15 px-5 py-2.5 font-semibold text-cyan-100 transition hover:-translate-y-0.5 hover:bg-cyan-400/20 hover:text-cyan-50 md:ml-6"
@@ -81,16 +70,6 @@ export function NavBar() {
                 <span aria-hidden>{"->"}</span>
               </a>
             ))}
-            <a
-              href={applicationLink}
-              target="_blank"
-              rel="noreferrer"
-              className="flex items-center justify-between rounded-xl border border-emerald-200/80 bg-emerald-300 px-4 py-3 text-sm font-semibold text-slate-950 shadow-[0_0_18px_rgba(52,211,153,0.45)] transition hover:-translate-y-0.5 hover:bg-emerald-200 hover:shadow-[0_0_24px_rgba(52,211,153,0.6)]"
-              onClick={() => setIsOpen(false)}
-            >
-              Apply to Lift
-              <span aria-hidden>{"->"}</span>
-            </a>
             <a
               href="mailto:hello@lifthvl.no"
               className="flex items-center justify-between rounded-xl border border-cyan-300/60 bg-cyan-500/15 px-4 py-3 text-sm font-semibold text-cyan-100 transition hover:-translate-y-0.5 hover:bg-cyan-400/20 hover:text-cyan-50"

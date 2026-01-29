@@ -35,19 +35,6 @@ const memberGroups: { title: string; members: Member[] }[] = [
       { name: "Erlend Snipen", role: "Member", avatar: "ES" },
     ],
   },
-  {
-    title: "Communications",
-    members: [
-      { name: "Erlend Snipen", role: "Communications Lead", avatar: "ES" },
-      { name: "Daniel Olsen", role: "Member", avatar: "DO" },
-    ],
-  },
-  {
-    title: "Administration & Media",
-    members: [
-      
-    ],
-  },
 ];
 
 function Avatar({ initials }: { initials: string }) {
@@ -115,7 +102,7 @@ export function TeamPage() {
                 <div className="mt-1 text-sm uppercase tracking-wide text-slate-400">Active members</div>
               </div>
               <div className="rounded-2xl border border-slate-800/80 bg-white/5 px-4 py-5 backdrop-blur">
-                <div className="text-2xl font-semibold text-cyan-300">5</div>
+                <div className="text-2xl font-semibold text-cyan-300">3</div>
                 <div className="mt-1 text-sm uppercase tracking-wide text-slate-400">Focus groups</div>
               </div>
             </div>
