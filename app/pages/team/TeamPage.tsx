@@ -14,15 +14,17 @@ const board: Member[] = [
   { name: "Viktor Rindsem", role: "Board Member", avatar: "VR" },
 ];
 
-const memberGroups: { title: string; members: Member[] }[] = [
+const memberGroups: { title: string; description: string; members: Member[] }[] = [
   {
     title: "Mechanical",
+    description: "Designs airframes, structures, and test rigs to keep the fleet flying efficiently.",
     members: [
       
     ],
   },
   {
     title: "Hardware",
+    description: "Builds the electronics stack, power systems, and sensor integrations.",
     members: [
       { name: "Bawan Mohammed Bawla", role: "Hardware Lead", avatar: "BB" },
       { name: "Viktor Rindsem", role: "Member", avatar: "VR" },
@@ -30,6 +32,7 @@ const memberGroups: { title: string; members: Member[] }[] = [
   },
   {
     title: "Software",
+    description: "Develops autonomy, tooling, and mission logic for safer, smarter flights.",
     members: [
       { name: "Daniel Olsen", role: "Software Lead", avatar: "DO" },
       { name: "Erlend Snipen", role: "Member", avatar: "ES" },
@@ -133,6 +136,7 @@ export function TeamPage() {
                   <span className="h-px w-8 bg-cyan-500" />
                   {group.title}
                 </div>
+                <p className="text-sm text-slate-300">{group.description}</p>
                 <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                   {group.members.length === 0 ? (
                     <div className="rounded-2xl border border-dashed border-cyan-500/40 bg-slate-900/40 px-4 py-6 text-sm text-slate-300">
