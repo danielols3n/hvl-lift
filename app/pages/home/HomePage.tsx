@@ -21,6 +21,33 @@ const tracks = [
   },
 ];
 
+const departments = [
+  {
+    name: "Mechanical",
+    tagline: "Designing the flying skeleton and muscles of our drones.",
+    description: "Build, test, and iterate airframes that balance speed, endurance, and payload needs. From CAD to carbon fiber layups, you will own the physical design and fabrication of our drones. Get hands-on experience with composite materials, structural analysis, and flight testing to bring our designs to life.",
+    focusAreas: ["CAD + structural design", "3D printing", "Assembly + flight testing", "Protection against water, dust and crashes", "Maintenance and repairs", "Mechanical integration of sensors"],
+    lookingFor: "Students who like design, materials, and hands-on fabrication.",
+    contact: "mechanical@lifthvl.no",
+  },
+  {
+    name: "Hardware",
+    tagline: "Creating the brain in the drone and the nervous system to connect it all.",
+    description: "Design and build the electronic systems that power our drones. From flight controllers to custom sensor boards, you will develop the hardware that enables our drones to fly smarter. Get experience with circuit design, soldering, and avionics integration as you build and test the brains of our UAVs.",
+    focusAreas: ["Power systems", "Sensor integration", "RF + telemetry", "Custom PCB design", "Hardware testing and debugging", "Battery Management Systems", "Waterproofing and durability", "Sensor calibration and integration"],
+    lookingFor: "Students who enjoy electronics, soldering, and troubleshooting.",
+    contact: "hardware@lifthvl.no",
+  },
+  {
+    name: "Software",
+    tagline: "Telling the brain in the drone what to do.",
+    description: "Write the flight software that controls our drones in the air. From low-level control loops to high-level autonomy, you will develop the code that makes our drones fly smarter. Gain experience with embedded programming, computer vision, and simulation as you build the software that powers our UAVs. Work on real-time control systems, sensor fusion algorithms, and mission planning software to enable our drones to navigate complex environments.",
+    focusAreas: ["Computer vision", "Simulation", "Firmware configuration", "Ground control software", "Data analysis and visualization", "Autonomous navigation algorithms", "AI models for perception and decision-making", "Sensor data processing", "Communication protocols and telemetry", "Flight software architecture and optimization"],
+    lookingFor: "Students who like programming and robotics.",
+    contact: "software@lifthvl.no",
+  },
+];
+
 export function HomePage() {
   return (
     <div className="relative min-h-screen overflow-hidden bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 text-slate-100">
@@ -36,7 +63,6 @@ export function HomePage() {
             Lift HVL | Student Drone Team
             <span className="h-px w-10 bg-cyan-500" />
           </div>
-
           <div className="grid items-center gap-12 lg:grid-cols-[1.05fr,0.95fr]">
             <div className="space-y-8">
               <h1 className="text-4xl font-semibold leading-tight text-slate-50 sm:text-5xl lg:text-6xl">
@@ -90,7 +116,6 @@ export function HomePage() {
             </div>
           </div>
         </section>
-
         <section className="mt-20 space-y-6">
           <div className="flex items-center justify-between gap-4">
             <div>
@@ -116,7 +141,54 @@ export function HomePage() {
             ))}
           </div>
         </section>
-
+        <section className="mt-20 space-y-6">
+          <div>
+            <p className="text-xs uppercase tracking-[0.25em] text-emerald-300">Departments</p>
+            <h2 className="text-3xl font-semibold text-slate-50 sm:text-4xl">
+              Pick a department and start building
+            </h2>
+            <p className="mt-2 max-w-3xl text-slate-300">
+              Each department has its own focus, mentors, and weekly sessions. 
+            </p>
+          </div>
+          <div className="grid grid-cols-1 gap-6">
+            {departments.map((department) => (
+              <article
+                key={department.name}
+                className="flex w-full max-w-3xl flex-col rounded-2xl border border-emerald-400/30 bg-gradient-to-b from-emerald-500/5 via-slate-950/70 to-slate-900/80 p-6"
+              >
+                <div className="flex items-start justify-between gap-3">
+                  <div>
+                    <h3 className="text-xl font-semibold text-slate-50">{department.name}</h3>
+                    <p className="mt-1 text-sm text-emerald-200">{department.tagline}</p>
+                  </div>
+                  <span className="rounded-full border border-emerald-300/40 px-3 py-1 text-xs uppercase tracking-[0.2em] text-emerald-200">
+                    Team
+                  </span>
+                </div>
+                <p className="mt-4 text-sm leading-relaxed text-slate-300">{department.description}</p>
+                <div className="mt-4 text-xs uppercase tracking-[0.2em] text-slate-400">Focus areas</div>
+                <ul className="mt-2 grid grid-cols-1 gap-2 sm:grid-cols-2">
+                  {department.focusAreas.map((focus) => (
+                    <li
+                      key={focus}
+                      className="rounded-full border border-slate-800/80 bg-white/5 px-3 py-1 text-xs text-slate-200"
+                    >
+                      {focus}
+                    </li>
+                  ))}
+                </ul>
+                <p className="mt-4 text-sm text-slate-300">{department.lookingFor}</p>
+                <a
+                  className="mt-auto pt-4 text-xs uppercase tracking-[0.2em] text-emerald-200"
+                  href={`mailto:${department.contact}`}
+                >
+                  Contact: {department.contact}
+                </a>
+              </article>
+            ))}
+          </div>
+        </section>
         <section id="projects" className="mt-20 space-y-4 text-center">
           <p className="text-xs uppercase tracking-[0.25em] text-cyan-300">Projects</p>
           <h2 className="text-3xl font-semibold text-slate-50 sm:text-4xl">See all builds and missions</h2>

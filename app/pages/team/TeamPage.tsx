@@ -18,14 +18,14 @@ const memberGroups: { title: string; members: Member[] }[] = [
   {
     title: "Mechanical",
     members: [
-      { name: "Daniel Olsen", role: "Mechanical Lead", avatar: "DO" },
+      
     ],
   },
   {
     title: "Hardware",
     members: [
-      { name: "Viktor Rindsem", role: "Hardware Lead", avatar: "VR" },
       { name: "Bawan Mohammed Bawla", role: "Hardware Lead", avatar: "BB" },
+      { name: "Viktor Rindsem", role: "Member", avatar: "VR" },
     ],
   },
   {
@@ -78,7 +78,7 @@ export function TeamPage() {
                 The team behind every flight.
               </h1>
               <p className="text-lg text-slate-300 sm:text-xl">
-                Builders, pilots, and planners split into focused crews so every airframe and mission has a champion.
+                We are a tight-knit group of students passionate about pushing the boundaries of drone technology. With diverse backgrounds in engineering, design and computer science, we come together to innovate and create cutting-edge UAVs. Each member brings unique skills and perspectives, making our team stronger and more creative. Join us on this exciting journey as we take flight!
               </p>
               <div className="flex flex-wrap gap-3">
                 <a
