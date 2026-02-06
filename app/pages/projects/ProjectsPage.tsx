@@ -62,9 +62,29 @@ const timeline = [
     description: "We're interviewing new candidates to join Lift for the spring semester.",
   },
   {
-    date: "...",
-    title: "More info is coming soon",
-    description: "",
+    date: "February 2026",
+    title: "Project kickoff",
+    description: "Kickoff of the Queen Bee project for the spring semester. Starting with planning and brainstorming sessions to define the project scope and architecture.",
+  },
+  {
+    date: "March 2026",
+    title: "First 3D model is printed!",
+    description: "The first 3D printed components of the Queen Bee airframe are ready.",
+  },
+  {
+    date: "Late March 2026",
+    title: "Assembly begins",
+    description: "The assembly of the first Queen Bee prototype begins, starting with the airframe and basic avionics integration.",
+  },
+  {
+    date: "Early April 2026",
+    title: "First flight tests",
+    description: "The first flight tests of the Queen Bee prototype are scheduled to begin.",
+  },
+  {
+    date: "Late April 2026",
+    title: "Extensive testing and iteration",
+    description: "Based on the results from the initial flight tests, we will iterate on the design and conduct extensive testing to refine the Queen Bee.",
   },
 ];
 
@@ -113,6 +133,12 @@ export function ProjectsPage() {
                   Propose a project
                   <span aria-hidden>{"->"}</span>
                 </a>
+                <a
+                  href="/blog"
+                  className="inline-flex items-center gap-2 rounded-full border border-slate-800/80 px-6 py-3 font-semibold text-slate-200 transition hover:-translate-y-0.5 hover:border-emerald-300/70 hover:text-emerald-100"
+                >
+                  Read project updates
+                </a>
                 <button
                   type="button"
                   className="inline-flex items-center gap-2 rounded-full border border-slate-800/80 px-6 py-3 font-semibold text-slate-200 transition hover:-translate-y-0.5 hover:border-cyan-400/70 hover:text-cyan-100"
@@ -135,7 +161,7 @@ export function ProjectsPage() {
           </div>
         </section>
 
-        <section className="mt-14 grid gap-6 lg:grid-cols-[1.05fr,0.95fr]">
+        {/* <section className="mt-14 grid gap-6 lg:grid-cols-[1.05fr,0.95fr]">
           <div className="rounded-3xl border border-cyan-500/25 bg-gradient-to-br from-cyan-500/10 via-slate-900/70 to-emerald-400/10 p-7 backdrop-blur">
             <p className="text-xs uppercase tracking-[0.3em] text-cyan-200">Program stats</p>
             <h3 className="mt-3 text-2xl font-semibold text-slate-50">Signals from the fleet</h3>
@@ -157,7 +183,7 @@ export function ProjectsPage() {
               ))}
             </ul>
           </div>
-        </section>
+        </section> */}
 
         <section className="mt-20 space-y-8">
           <div className="flex flex-col gap-2">

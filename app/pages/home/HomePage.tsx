@@ -101,6 +101,12 @@ export function HomePage() {
                 >
                   See what we build
                 </a>
+                <a
+                  href="/blog"
+                  className="inline-flex items-center gap-2 rounded-full border border-slate-800/80 px-6 py-3 font-semibold text-slate-200 transition hover:-translate-y-0.5 hover:border-emerald-300/70 hover:text-emerald-100"
+                >
+                  Read project updates
+                </a>
               </div>
               <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
                 {stats.map((stat) => (

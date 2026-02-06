@@ -19,7 +19,10 @@ const memberGroups: { title: string; description: string; members: Member[] }[] 
     title: "Mechanical",
     description: "Designs airframes, structures, and test rigs to keep the fleet flying efficiently.",
     members: [
-      
+      { name: "Skjalg Freheim", role: "Mechanical Lead", avatar: "SF" },
+      { name: "Christian A. Brandbu", role: "Member", avatar: "CB" },
+      { name: "Christopher C. Strandheim", role: "Member", avatar: "CS" },
+      { name: "Trym Fanebust", role: "Member", avatar: "TF" },
     ],
   },
   {
@@ -28,6 +31,12 @@ const memberGroups: { title: string; description: string; members: Member[] }[] 
     members: [
       { name: "Bawan Mohammed Bawla", role: "Hardware Lead", avatar: "BB" },
       { name: "Viktor Rindsem", role: "Member", avatar: "VR" },
+      { name: "Oliver E. Elverum", role: "Member", avatar: "OE" },
+      { name: "Trym Hamre", role: "Member", avatar: "TH" },
+      { name: "Christian Olsen", role: "Member", avatar: "CO" },
+      { name: "Vegard P. Kallhovd", role: "Member", avatar: "VK" },
+      { name: "Agsrom Daniel Ghebratatyos", role: "Member", avatar: "AG" },
+      { name: "Kristoffer Raa", role: "Member", avatar: "KR" },
     ],
   },
   {
@@ -36,6 +45,13 @@ const memberGroups: { title: string; description: string; members: Member[] }[] 
     members: [
       { name: "Daniel Olsen", role: "Software Lead", avatar: "DO" },
       { name: "Erlend Snipen", role: "Member", avatar: "ES" },
+      { name: "Øyvind Lundstad", role: "Member", avatar: "ØL" },
+      { name: "Jørgen Moland", role: "Member", avatar: "JM" },
+      { name: "Jakob Østensvig-Austrheim", role: "Member", avatar: "JA" },
+      { name: "Kasper Austbø", role: "Member", avatar: "KA" },
+      { name: "Ebrima H. Jallow", role: "Member", avatar: "EJ" },
+      { name: "Sondre Garnæs", role: "Member", avatar: "SG" },
+      { name: "Susanne T. Log", role: "Member", avatar: "SL" },
     ],
   },
 ];
@@ -101,7 +117,7 @@ export function TeamPage() {
             </div>
             <div className="grid gap-4 sm:grid-cols-2">
               <div className="rounded-2xl border border-slate-800/80 bg-white/5 px-4 py-5 backdrop-blur">
-                <div className="text-2xl font-semibold text-cyan-300">4</div>
+                <div className="text-2xl font-semibold text-cyan-300">21</div>
                 <div className="mt-1 text-sm uppercase tracking-wide text-slate-400">Active members</div>
               </div>
               <div className="rounded-2xl border border-slate-800/80 bg-white/5 px-4 py-5 backdrop-blur">
