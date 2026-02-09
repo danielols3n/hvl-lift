@@ -33,11 +33,11 @@ const projectOverview: Array<{
     statusColor: "red",
     phase: "Planning",
     timeline: "1st semester 2026",
-    focus: "Drone with avionics and battery switching system",
+    focus: "Drone with avionics and coupling/decoupling mechanism for controlling smaller drones.",
     summary: "Building the first Lift HVL drone with focus on making the queen bee for our 2nd semester 2026 project",
     tags: ["Battery Switching", "Modelling", "Telemetry"],
     details: {
-      objective: "Create a drone for controlling smaller drones as well as a platform for testing battery switching systems.",
+      objective: "Create a drone for controlling smaller drones as well as a mechanism for coupling and decoupling the smaller drones in flight.",
       currentWork: "Planning the airframe and avionics architecture.",
       nextMilestone: "Complete initial CAD model and order components for prototyping.",
       needs: ["Planning", "Electronics", "Software"],
@@ -47,7 +47,7 @@ const projectOverview: Array<{
 
 const highlights = [
   { label: "Active programs", value: "1" },
-  // { label: "Active contributors", value: "4" },
+  { label: "Active contributors", value: "21" },
   // { label: "Flight tests planned", value: "6" },
 ];
 
@@ -335,7 +335,7 @@ export function ProjectsPage() {
                 <p className="mt-2 text-slate-100">{activeProject.details.currentWork}</p>
               </div>
               <div>
-                <p className="text-xs uppercase tracking-[0.2em] text-slate-400">We need help with</p>
+                <p className="text-xs uppercase tracking-[0.2em] text-slate-400">Main focus</p>
                 <div className="mt-3 flex flex-wrap gap-2">
                   {activeProject.details.needs.map((need) => (
                     <span

@@ -2,7 +2,7 @@ import { NavBar } from "../../components/NavBar";
 import { Footer } from "../../components/Footer";
 
 const stats = [
-  { label: "Active members", value: "4" },
+  { label: "Active members", value: "21" },
   // { label: "Airframes built", value: "0" },
 ];
 
@@ -45,6 +45,26 @@ const departments = [
     focusAreas: ["Computer vision", "Simulation", "Firmware configuration", "Ground control software", "Data analysis and visualization", "Autonomous navigation algorithms", "AI models for perception and decision-making", "Sensor data processing", "Communication protocols and telemetry", "Flight software architecture and optimization"],
     lookingFor: "Students who like programming and robotics.",
     contact: "software@lifthvl.no",
+  },
+];
+
+const sponsors: Array<{
+  name: string;
+  image?: string;
+  imageAlt?: string;
+  link: string;
+}> = [
+  {
+    name: "Frifond",
+    image: "app/assets/sponsors/frifond.png",
+    imageAlt: "Frifond logo",
+    link: "https://frifond.no",
+  },
+  {
+    name: "Elektroingeniørenes linjeforening",
+    image: "app/assets/sponsors/ELF.png",
+    imageAlt: "Elektroingeniørenes linjeforening logo",
+    link: "https://www.instagram.com/elektrohvl/",
   },
 ];
 
@@ -195,7 +215,36 @@ export function HomePage() {
             ))}
           </div>
         </section>
-        <section id="projects" className="mt-20 space-y-4 text-center">
+        <section className="mt-20 space-y-6">
+          <div>
+            <p className="text-xs uppercase tracking-[0.25em] text-amber-300">Sponsors</p>
+            <h2 className="text-3xl font-semibold text-slate-50 sm:text-4xl">Backed by partners who build with us</h2>
+          </div>
+          <div className="grid gap-6 sm:grid-cols-2">
+            {sponsors.map((sponsor) => (
+              <article
+                key={sponsor.name}
+                className="rounded-2xl border border-amber-300/30 bg-gradient-to-b from-amber-500/5 via-slate-950/70 to-slate-900/80 p-6 cursor-pointer"
+                onClick={() => window.document.location = sponsor.link}
+              >
+                {sponsor.image ? (
+                  <img
+                    src={sponsor.image}
+                    alt={sponsor.imageAlt ?? `${sponsor.name} logo`}
+                    className="mb-4 h-75 w-full rounded-xl border border-slate-700/70 bg-slate-900/60 object-contain p-2"
+                    loading="lazy"
+                  />
+                ) : (
+                  <div className="mb-4 flex h-16 w-full items-center justify-center rounded-xl border border-dashed border-slate-700/80 bg-slate-900/40 text-xs uppercase tracking-[0.2em] text-slate-400">
+                    Add sponsor image
+                  </div>
+                )}
+                <h3 className="text-xl font-semibold text-slate-50">{sponsor.name}</h3>
+              </article>
+            ))}
+          </div>
+        </section>
+        <section id="projects" className="mt-30 space-y-4 text-center">
           <p className="text-xs uppercase tracking-[0.25em] text-cyan-300">Projects</p>
           <h2 className="text-3xl font-semibold text-slate-50 sm:text-4xl">See all builds and missions</h2>
           <p className="mx-auto max-w-3xl text-slate-300">
@@ -208,23 +257,6 @@ export function HomePage() {
             >
               View all projects
               <span aria-hidden>{"->"}</span>
-            </a>
-          </div>
-        </section>
-
-        <section className="mt-20 flex flex-col gap-4 rounded-3xl border border-cyan-500/30 bg-gradient-to-r from-cyan-500/10 via-slate-950/60 to-emerald-400/10 p-8 text-center backdrop-blur">
-          <p className="text-xs uppercase tracking-[0.3em] text-cyan-200">Ready to build</p>
-          <h2 className="text-3xl font-semibold text-slate-50 sm:text-4xl">Your next launch starts here</h2>
-          <p className="mx-auto max-w-3xl text-slate-200">
-            Bring an idea, a 3D print, or a half-soldered frame. We'll supply with knowledge, mentors, and a hangar full of
-            tools. Let's get you flying.
-          </p>
-          <div className="flex flex-wrap justify-center gap-3">
-            <a
-              href="mailto:hello@lifthvl.no"
-              className="inline-flex items-center gap-2 rounded-full bg-cyan-400 px-6 py-3 font-semibold text-gray-950 transition hover:-translate-y-0.5 hover:bg-cyan-300"
-            >
-              Contact the team
             </a>
           </div>
         </section>
