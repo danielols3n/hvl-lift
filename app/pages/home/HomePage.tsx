@@ -1,5 +1,7 @@
 import { NavBar } from "../../components/NavBar";
 import { Footer } from "../../components/Footer";
+import frifondLogo from "../../assets/sponsors/frifond.png";
+import elfLogo from "../../assets/sponsors/ELF.png";
 
 const stats = [
   { label: "Active members", value: "21" },
@@ -56,13 +58,13 @@ const sponsors: Array<{
 }> = [
   {
     name: "Frifond",
-    image: "app/assets/sponsors/frifond.png",
+    image: frifondLogo,
     imageAlt: "Frifond logo",
     link: "https://frifond.no",
   },
   {
     name: "Elektroingeniørenes linjeforening",
-    image: "app/assets/sponsors/ELF.png",
+    image: elfLogo,
     imageAlt: "Elektroingeniørenes linjeforening logo",
     link: "https://www.instagram.com/elektrohvl/",
   },
