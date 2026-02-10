@@ -1,5 +1,6 @@
 import { NavBar } from "../../components/NavBar";
 import { Footer } from "../../components/Footer";
+import fellesbilde from "../../assets/fellesbilde.jpg";
 
 type Member = {
   name: string;
@@ -19,8 +20,9 @@ const memberGroups: { title: string; description: string; members: Member[] }[] 
     title: "Mechanical",
     description: "Designs airframes, structures, and test rigs to keep the fleet flying efficiently.",
     members: [
-      { name: "Skjalg Freheim", role: "Mechanical Lead", avatar: "SF" },
-      { name: "Christian A. Brandbu", role: "Member", avatar: "CB" },
+      { name: "Erlend Snipen", role: "Mechanical Lead", avatar: "ES" },
+      { name: "Skjalg Freheim", role: "Member", avatar: "SF" },
+      { name: "Daniel Kronheim", role: "Member", avatar: "DK" },
       { name: "Christopher C. Strandheim", role: "Member", avatar: "CS" },
       { name: "Trym Fanebust", role: "Member", avatar: "TF" },
     ],
@@ -44,7 +46,6 @@ const memberGroups: { title: string; description: string; members: Member[] }[] 
     description: "Develops autonomy, tooling, and mission logic for safer, smarter flights.",
     members: [
       { name: "Daniel Olsen", role: "Software Lead", avatar: "DO" },
-      { name: "Erlend Snipen", role: "Member", avatar: "ES" },
       { name: "Øyvind Lundstad", role: "Member", avatar: "ØL" },
       { name: "Jørgen Moland", role: "Member", avatar: "JM" },
       { name: "Jakob Østensvig-Austrheim", role: "Member", avatar: "JA" },
@@ -164,6 +165,20 @@ export function TeamPage() {
                 </div>
               </div>
             ))}
+          </div>
+        </section>
+
+        <section className="mt-16 space-y-6">
+          <div className="flex items-center gap-3 text-xs uppercase tracking-[0.25em] text-cyan-300">
+            <span className="h-px w-8 bg-cyan-500" />
+            2026 TEAM
+          </div>
+          <div className="mx-auto w-full max-w-4xl overflow-hidden rounded-2xl border border-slate-800/80 bg-white/5">
+            <img
+              src={fellesbilde}
+              alt="2026 team"
+              className="h-auto w-full object-cover"
+            />
           </div>
         </section>
       </main>
