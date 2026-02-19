@@ -35,7 +35,7 @@ const projectOverview: Array<{
     timeline: "1st semester 2026",
     focus: "Drone with avionics and coupling/decoupling mechanism for controlling smaller drones.",
     summary: "Building the first Lift HVL drone with focus on making the queen bee for our 2nd semester 2026 project",
-    tags: ["Battery Switching", "Modelling", "Telemetry"],
+    tags: ["Coupling and de-coupling", "Modelling", "Telemetry"],
     details: {
       objective: "Create a drone for controlling smaller drones as well as a mechanism for coupling and decoupling the smaller drones in flight.",
       currentWork: "Planning the airframe and avionics architecture.",
