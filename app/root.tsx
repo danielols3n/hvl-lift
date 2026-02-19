@@ -33,10 +33,10 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <meta name="description" content="Lift HVL is a student organization at the Western Norway University of Applied Sciences (HVL) dedicated to fostering innovation and entrepreneurship among students. We provide resources, mentorship, and a collaborative community to help students turn their ideas into successful ventures." />
         <meta name="keywords" content="Lift HVL, student organization, innovation, entrepreneurship, Western Norway University of Applied Sciences, HVL, student club, startup, mentorship, resources" />
         <meta name="author" content="Lift HVL" />
-        <link rel="icon" href="/app/assets/logo.png" />
+        <link rel="icon" href="/public/logo.png" />
         <meta property="og:title" content="Lift HVL - Fostering Innovation and Entrepreneurship at HVL" />
         <meta property="og:description" content="Lift HVL is a student organization at the Western Norway University of Applied Sciences (HVL) dedicated to fostering innovation and entrepreneurship among students. We provide resources, mentorship, and a collaborative community to help students turn their ideas into successful ventures." />
-        <meta property="og:image" content="/app/assets/logo.png" />
+        <meta property="og:image" content="/public/logo.png" />
         <Meta />
         <Links />
       </head>
