@@ -139,12 +139,6 @@ export function ProjectsPage() {
                 >
                   Read project updates
                 </a>
-                <button
-                  type="button"
-                  className="inline-flex items-center gap-2 rounded-full border border-slate-800/80 px-6 py-3 font-semibold text-slate-200 transition hover:-translate-y-0.5 hover:border-cyan-400/70 hover:text-cyan-100"
-                >
-                  View the roadmap
-                </button>
               </div>
             </div>
             <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
