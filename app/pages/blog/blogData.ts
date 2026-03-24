@@ -2,6 +2,13 @@ import blogKickoffImage1 from "../../assets/blog-posts/190226-1.jpg";
 import blogKickoffImage2 from "../../assets/blog-posts/190226-2.jpg";
 import blogKickoffImage3 from "../../assets/blog-posts/190226-3.jpg";
 
+import blogWorkshopImage1 from "../../assets/blog-posts/240326-1.jpg";
+import blogWorkshopImage2 from "../../assets/blog-posts/240326-2.jpg";
+import blogWorkshopImage3 from "../../assets/blog-posts/240326-3.jpg";
+import blogWorkshopImage4 from "../../assets/blog-posts/240326-4.jpg";
+import blogWorkshopImage5 from "../../assets/blog-posts/240326-5.jpg";
+import blogWorkshopImage6 from "../../assets/blog-posts/240326-6.jpg";
+
 export type BlogContentBlock =
   | string
   | {
@@ -88,6 +95,57 @@ export const blogPosts: BlogPost[] = [
       "We have assembled a highly motivated team with impressive competence across disciplines. Just as importantly, we have gathered students who are eager to learn, collaborate, and challenge themselves.",
       "Our goal is ambitious: to develop an autonomous drone swarm by May. It won’t be easy. But with the team we now have, we truly believe it is possible.",
       "We hope you’ll follow us on our journey as Lift HVL works toward making that vision take flight.",
+      "With best regards, \n The Board of Lift HVL",
+    ],
+  },
+  {
+    slug: "workshop-march-2026",
+    title: "Our first workshop!",
+    project: "Queen Bee",
+    publishedAt: "2026-03-24",
+    author: "Board",
+    summary: "This week we held our first workshop for the Queen Bee project, covering hardware, mechanical, and software topics.",
+    tags: ["Queen Bee", "Workshop"],
+    images: [
+      {
+        src: blogWorkshopImage3,
+        alt: "Our first 3D print.",
+        caption: "Mechanical team celebrating the success of our first 3D print.",
+      },
+      {
+        src: blogWorkshopImage5,
+        alt: "All three groups working across disciplines during the workshop.",
+      },
+      {
+        src: blogWorkshopImage1,
+        alt: "Software started working with serial communication between the flight computer and a companion computer.",
+        caption: "Software started working with serial communication between the flight computer and a companion computer.",
+      },
+      {
+        src: blogWorkshopImage2,
+        alt: "Bawan, hardware lead, giving a summary of what the hardware team has accomplished so far.",
+        caption: "Bawan, hardware lead, giving a summary of what the hardware team has accomplished so far.",
+      },
+      {
+        src: blogWorkshopImage4,
+        alt: "All teams working together.",
+      },
+      {
+        src: blogWorkshopImage6,
+        alt: "And, of course, we had to order pizza for our first workshop!",
+        caption: "And, of course, we had to order pizza for our first workshop!",
+      },
+    ],
+    content: [
+      "Workshop with Lift – March 18 🚀",
+      "On Wednesday, March 18, Lift held a new workshop where all teams gathered to share progress and continue working on our project.",
+      "We started the day with short presentations from each team, where everyone showed what they had been working on since last time. It is clear that the project is beginning to take shape!",
+      "🔌 Hardware has continued searching for components and completed a full parts list for the components needed for our own PCB. This marks an important step forward in development.",
+      "💻 Software has focused on communication between the Pixhawk 6C board and a companion computer, represented by a Raspberry Pi 5. In addition, they have worked on simulation and testing of Pixhawk, and developed a dummy AI model that can recognize, among other things, Fanta, salt, and french fries seasoning.",
+      "🛠️ Mechanical has started work on the 3D model of “The Queen Bee”, while also test-printing a hexacopter to verify design and concepts.",
+      "The workshop ended with pizza and some mingling, and it was clear that everyone was happy to be able to work together across the teams. It is so fun to see how the project is evolving, and we look forward to the continuation!",
+      "All in all, a productive workshop with good progress in all teams – we look forward to seeing how the project develops further!",
+      "We are now taking a well deserved Easter break, but we will be back at it after the holidays. We hope you will follow us on our journey as we continue to develop our drone swarm project.",
       "With best regards, \n The Board of Lift HVL",
     ],
   },
