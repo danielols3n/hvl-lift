@@ -2,6 +2,7 @@ import { NavBar } from "../../components/NavBar";
 import { Footer } from "../../components/Footer";
 import frifondLogo from "../../assets/sponsors/frifond.png";
 import elfLogo from "../../assets/sponsors/ELF.png";
+import elefunLogo from "../../assets/sponsors/Elefun_Logo.png";
 
 const stats = [
   { label: "Active members", value: "21" },
@@ -56,6 +57,12 @@ const sponsors: Array<{
   imageAlt?: string;
   link: string;
 }> = [
+  {
+    name: "Elefun",
+    image: elefunLogo,
+    imageAlt: "Elefun logo",
+    link: "https://elefun.no",
+  },
   {
     name: "Frifond",
     image: frifondLogo,
@@ -224,10 +231,12 @@ export function HomePage() {
           </div>
           <div className="grid gap-6 sm:grid-cols-2">
             {sponsors.map((sponsor) => (
-              <article
+              <a
                 key={sponsor.name}
-                className="rounded-2xl border border-amber-300/30 bg-gradient-to-b from-amber-500/5 via-slate-950/70 to-slate-900/80 p-6 cursor-pointer"
-                onClick={() => window.document.location = sponsor.link}
+                href={sponsor.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-2xl border border-amber-300/30 bg-gradient-to-b from-amber-500/5 via-slate-950/70 to-slate-900/80 p-6 transition hover:-translate-y-1 hover:border-amber-300/60"
               >
                 {sponsor.image ? (
                   <img
@@ -236,13 +245,10 @@ export function HomePage() {
                     className="mb-4 h-75 w-full rounded-xl border border-slate-700/70 bg-slate-900/60 object-contain p-2"
                     loading="lazy"
                   />
-                ) : (
-                  <div className="mb-4 flex h-16 w-full items-center justify-center rounded-xl border border-dashed border-slate-700/80 bg-slate-900/40 text-xs uppercase tracking-[0.2em] text-slate-400">
-                    Add sponsor image
-                  </div>
-                )}
+                ) : null
+                }
                 <h3 className="text-xl font-semibold text-slate-50">{sponsor.name}</h3>
-              </article>
+              </a>
             ))}
           </div>
         </section>
