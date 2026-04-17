@@ -9,6 +9,16 @@ import blogWorkshopImage4 from "../../assets/blog-posts/240326-4.jpg";
 import blogWorkshopImage5 from "../../assets/blog-posts/240326-5.jpg";
 import blogWorkshopImage6 from "../../assets/blog-posts/240326-6.jpg";
 
+import blogAscendImage1 from "../../assets/blog-posts/170426-1.jpg";
+import blogAscendImage2 from "../../assets/blog-posts/170426-2.jpg";
+import blogAscendImage3 from "../../assets/blog-posts/170426-3.jpg";
+import blogAscendImage4 from "../../assets/blog-posts/170426-4.jpg";
+import blogAscendImage5 from "../../assets/blog-posts/170426-5.jpg";
+import blogAscendImage6 from "../../assets/blog-posts/170426-6.jpg";
+import blogAscendImage7 from "../../assets/blog-posts/170426-7.jpg";
+import blogAscendImage8 from "../../assets/blog-posts/170426-8.jpg";
+import blogAscendImage9 from "../../assets/blog-posts/170426-9.jpg";
+
 export type BlogContentBlock =
   | string
   | {
@@ -147,6 +157,71 @@ export const blogPosts: BlogPost[] = [
       "All in all, a productive workshop with good progress in all teams – we look forward to seeing how the project develops further!",
       "We are now taking a well deserved Easter break, but we will be back at it after the holidays. We hope you will follow us on our journey as we continue to develop our drone swarm project.",
       "With best regards, \n The Board of Lift HVL",
+    ],
+  },
+  {
+    slug: "visit-to-ascend-ntnu",
+    title: "Visit to Ascend NTNU",
+    project: "Lift HVL",
+    publishedAt: "2026-04-17",
+    author: "Board",
+    summary: "Thursdag 16th of April, Lift HVL had the opportunity to visit Ascend NTNU, a student organization at NTNU that focuses on developing autonomous drones.",
+    tags: ["Ascend NTNU", "Lift HVL"],
+    images: [
+      {
+        src: blogAscendImage1,
+        alt: "View from the plane window on the way to Trondheim.",
+        caption: "On our way to Trondheim — the journey begins!",
+      },
+      {
+        src: blogAscendImage2,
+        alt: "Lift HVL members getting a tour of Ascend NTNU's workshop.",
+        caption: "Getting a tour of Ascend NTNU's impressive workshop facilities.",
+      },
+      {
+        src: blogAscendImage3,
+        alt: "A team member giving a thumbs up holding a Monster energy drink.",
+        caption: "Erlend was very happy to be at Ascend NTNU — and even happier to find a Monster energy drink in their fridge!",
+      },
+      {
+        src: blogAscendImage4,
+        alt: "Ascend NTNU members working at their computers in the team room.",
+        caption: "A glimpse into Ascend NTNU's busy team room.",
+      },
+      {
+        src: blogAscendImage5,
+        alt: "Two members posing in front of Ascend NTNU's large autonomous drone.",
+        caption: "Standing next to Ascend NTNU's impressive autonomous drone.",
+      },
+      {
+        src: blogAscendImage6,
+        alt: "Close-up of Ascend NTNU's autonomous drone showing the carbon fiber frame, electronics, and orange 3D-printed parts.",
+      },
+      {
+        src: blogAscendImage7,
+        alt: "The main building of NTNU in Trondheim.",
+        caption: "The main building of NTNU in Trondheim.",
+      },
+      {
+        src: blogAscendImage8,
+        alt: "Three Lift HVL members walking in Trondheim city centre.",
+        caption: "Exploring Trondheim after a great visit.",
+      },
+      {
+        src: blogAscendImage9,
+        alt: "Nidaros Cathedral in Trondheim on a sunny day.",
+        caption: "A quick stop at the magnificent Nidaros Cathedral.",
+      },
+    ],
+    content: [
+      "Visit to Ascend NTNU 🚁",
+      "On Thursday, April 16, Lift had the opportunity to visit Ascend NTNU, a student organization at NTNU that focuses on developing autonomous drones. The visit was a great opportunity for our team to learn from their experiences and gain insights into the development of autonomous drone technology.",
+      "We started the day early at around 6:30 am, with a flight from Bergen to Trondheim. After arriving in Trondheim, we were warmly welcomed by the Ascend NTNU team and given a tour of their impressive workshop facilities. It was inspiring to see the space where they design, build, and test their drones.",
+      "After some few hours of touring and visiting their workshop and office, we had a great lunch together with the Ascend NTNU team. It was a great opportunity to get to know each other and exchange ideas about our respective projects.",
+      "After the lunch, we walked down to the old office of Ascend NTNU, where they store all their old drones and projects. It was fascinating to see the evolution of their designs and the different approaches they have taken over the years.",
+      "From there, we walked towards the city centre to find a nice place to sit down and wait for our flight back to Bergen. We had to stop for a quick visit to the Nidaros Cathedral, which is a must-see when in Trondheim. ",
+      "The team from Lift HVL enjoyed some hours in the sun at a café before we headed back to the airport to catch our flight back to Bergen.",
+      "We had a fantastic day visiting Ascend NTNU and learning from their experiences. It was inspiring to see the work they have done and the progress they have made in developing autonomous drones. We are grateful for the opportunity to visit them and look forward to continuing to learn from their work as we develop our own drone swarm project.",
     ],
   },
 ];

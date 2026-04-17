@@ -123,7 +123,7 @@ export function ProjectBlogPage({ slug }: ProjectBlogPageProps) {
                   <img
                     src={image.src}
                     alt={image.alt}
-                    className="h-64 w-full object-cover"
+                    className="h-64 w-full object-contain bg-slate-900"
                     loading="lazy"
                   />
                   {image.caption ? (

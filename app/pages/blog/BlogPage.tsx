@@ -196,7 +196,7 @@ export function BlogPage() {
                   <img
                     src={post.images[0].src}
                     alt={post.images[0].alt}
-                    className="mt-4 h-56 w-full rounded-2xl border border-slate-800/70 object-cover"
+                    className="mt-4 h-56 w-full rounded-2xl border border-slate-800/70 object-contain bg-slate-900"
                     loading="lazy"
                   />
                 ) : null}
