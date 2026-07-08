@@ -1,57 +1,98 @@
+const navLinks = [
+  { label: "Home", href: "/" },
+  { label: "Projects", href: "/projects" },
+  { label: "Blog", href: "/blog" },
+  { label: "Our team", href: "/team" },
+];
+
 const socialLinks = [
-  { label: "Instagram", href: "https://instagram.com/lifthvl/", icon: "IG" },
-  { label: "GitHub", href: "https://github.com/Lift-HVL", icon: "GH" },
-  { label: "LinkedIn", href: "https://linkedin.com", icon: "IN" },
+  { label: "Instagram", href: "https://instagram.com/lifthvl/" },
+  { label: "GitHub", href: "https://github.com/Lift-HVL" },
+  { label: "LinkedIn", href: "https://linkedin.com" },
 ];
 
 export function Footer() {
   return (
-    <footer className="relative mt-24 border-t border-slate-800/60 bg-[#0d1f33] text-slate-200">
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-12 bg-gradient-to-b from-cyan-400/18 to-transparent" />
-      <div className="relative mx-auto flex max-w-6xl flex-col gap-8 px-6 py-10 lg:flex-row lg:items-center lg:justify-between">
-        <div className="space-y-3">
-          <div className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.22em] text-cyan-200">
-            <span className="h-px w-8 bg-cyan-500" />
+    <footer className="relative border-t border-white/10 bg-black text-slate-200">
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-sky-500/15 to-transparent" />
+
+      <div className="relative mx-auto grid max-w-7xl gap-12 px-5 py-16 sm:px-8 lg:grid-cols-[1.2fr,1fr,1fr,1fr]">
+        <div>
+          <div className="text-lg font-bold tracking-tight text-white">
             Lift HVL
           </div>
-          <div className="text-sm text-slate-300">
-            <div>Høgskulen på Vestlandet</div>
-            <div>Inndalsveien 28, 5063 Bergen</div>
-            <div>Norge</div>
-          </div>
-          <div className="text-sm text-slate-300">
-            <div>Email: <a className="text-cyan-200 hover:text-cyan-100" href="mailto:hello@lifthvl.no">hello@lifthvl.no</a></div>
-          </div>
+          <p className="mt-4 max-w-xs text-sm leading-relaxed text-slate-400">
+            The first student drone organisation in Bergen, run by 21 volunteer
+            students at HVL.
+          </p>
         </div>
 
-        <div className="flex flex-col gap-4 text-sm text-slate-300">
-          <div className="flex items-center gap-3 text-xs uppercase tracking-[0.2em] text-cyan-200">
-            <span className="h-px w-8 bg-cyan-500" />
-            Følg oss
+        <div>
+          <div className="font-mono text-[10px] uppercase tracking-[0.25em] text-slate-500">
+            Site
           </div>
-          <div className="flex flex-wrap gap-3">
-            {socialLinks.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                className="inline-flex items-center gap-2 rounded-full border border-slate-800/70 bg-slate-900/70 px-4 py-2 text-sm font-semibold text-slate-200 transition hover:-translate-y-0.5 hover:border-cyan-300/70 hover:text-cyan-100"
-              >
-                <span className="flex h-7 w-7 items-center justify-center rounded-full border border-cyan-400/40 bg-cyan-500/10 text-xs font-bold text-cyan-100">
-                  {link.icon}
-                </span>
-                {link.label}
-              </a>
+          <ul className="mt-4 space-y-2.5 text-sm">
+            {navLinks.map((link) => (
+              <li key={link.href}>
+                <a
+                  href={link.href}
+                  className="text-slate-300 transition-colors hover:text-cyan-300"
+                >
+                  {link.label}
+                </a>
+              </li>
             ))}
+          </ul>
+        </div>
+
+        <div>
+          <div className="font-mono text-[10px] uppercase tracking-[0.25em] text-slate-500">
+            Follow
+          </div>
+          <ul className="mt-4 space-y-2.5 text-sm">
+            {socialLinks.map((link) => (
+              <li key={link.label}>
+                <a
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-slate-300 transition-colors hover:text-cyan-300"
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div>
+          <div className="font-mono text-[10px] uppercase tracking-[0.25em] text-slate-500">
+            Contact
+          </div>
+          <div className="mt-4 space-y-2.5 text-sm text-slate-300">
+            <a
+              className="block transition-colors hover:text-cyan-300"
+              href="mailto:hello@lifthvl.no"
+            >
+              hello@lifthvl.no
+            </a>
+            <div className="pt-2 leading-relaxed text-slate-500">
+              Høgskulen på Vestlandet
+              <br />
+              Inndalsveien 28, 5063 Bergen
+            </div>
           </div>
         </div>
       </div>
-      <div className="border-t border-slate-800/60 bg-[#0d1f33] py-4">
-        <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-3 px-6 text-xs text-slate-400 sm:flex-row sm:items-center">
-          <span>© {new Date().getFullYear()} Lift HVL. All rights reserved.</span>
-          <span className="text-slate-500">Crafted by the student team.</span>
-        </div>
-        <div className="mx-auto mt-2 max-w-6xl px-6 text-xs text-slate-500">
-          LIFT HVL is a student organization and does not conduct drone flights on behalf of HVL.
+
+      <div className="relative border-t border-white/10">
+        <div className="mx-auto flex max-w-7xl flex-col gap-2 px-5 py-6 font-mono text-[11px] text-slate-500 sm:px-8 md:flex-row md:items-center md:justify-between">
+          <span>© {new Date().getFullYear()} Lift HVL</span>
+          <span className="max-w-2xl leading-relaxed">
+            Lift HVL is a student organisation and does not conduct drone
+            flights on behalf of Høgskulen på Vestlandet (HVL). All activity and
+            public communication are carried out by the student team.
+          </span>
         </div>
       </div>
     </footer>

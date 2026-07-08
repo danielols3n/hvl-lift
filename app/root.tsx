@@ -20,7 +20,7 @@ export const links: Route.LinksFunction = () => [
   },
   {
     rel: "stylesheet",
-    href: "https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap",
+    href: "https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Geist+Mono:wght@400;500&display=swap",
   },
 ];
 
@@ -30,12 +30,12 @@ export function Layout({ children }: { children: React.ReactNode }) {
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="description" content="Lift HVL is a student organization at the Western Norway University of Applied Sciences (HVL) dedicated to fostering innovation and entrepreneurship among students. We provide resources, mentorship, and a collaborative community to help students turn their ideas into successful ventures." />
-        <meta name="keywords" content="Lift HVL, student organization, innovation, entrepreneurship, Western Norway University of Applied Sciences, HVL, student club, startup, mentorship, resources" />
+        <meta name="description" content="Lift HVL is the first student drone organisation in Bergen. 21 volunteer students at Western Norway University of Applied Sciences (HVL) design and build the Queen Bee hexacopter: airframe, electronics and flight software, all in-house." />
+        <meta name="keywords" content="Lift HVL, student drone team, drone organisation Bergen, UAV, hexacopter, Queen Bee, Western Norway University of Applied Sciences, HVL, engineering students, drone swarm" />
         <meta name="author" content="Lift HVL" />
         <link rel="icon" href="/logo.png" />
-        <meta property="og:title" content="Lift HVL - Fostering Innovation and Entrepreneurship at HVL" />
-        <meta property="og:description" content="Lift HVL is a student organization at the Western Norway University of Applied Sciences (HVL) dedicated to fostering innovation and entrepreneurship among students. We provide resources, mentorship, and a collaborative community to help students turn their ideas into successful ventures." />
+        <meta property="og:title" content="Lift HVL — Student Drone Team in Bergen" />
+        <meta property="og:description" content="21 volunteer students building the Queen Bee hexacopter from scratch: airframe, electronics and flight software, all designed in-house at HVL." />
         <meta property="og:image" content="/logo.png" />
         <Meta />
         <Links />
