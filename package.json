@@ -11,11 +11,14 @@
   "dependencies": {
     "@react-router/node": "7.10.1",
     "@react-router/serve": "7.10.1",
+    "@react-three/drei": "^10.7.7",
+    "@react-three/fiber": "^9.6.1",
     "@vercel/analytics": "^1.6.1",
     "isbot": "^5.1.31",
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
-    "react-router": "7.10.1"
+    "react-router": "7.10.1",
+    "three": "^0.185.1"
   },
   "devDependencies": {
     "@react-router/dev": "7.10.1",
@@ -27,5 +30,8 @@
     "typescript": "^5.9.2",
     "vite": "^7.1.7",
     "vite-tsconfig-paths": "^5.1.4"
+  },
+  "allowScripts": {
+    "esbuild@0.27.2": true
   }
 }

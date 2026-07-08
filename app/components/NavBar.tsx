@@ -1,5 +1,6 @@
 import { useState } from "react";
 import logo from "../assets/logo.png";
+import { useScrollY } from "../hooks/useScrollY";
 
 const navLinks = [
   { label: "Home", href: "/" },
@@ -10,61 +11,79 @@ const navLinks = [
 
 export function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
+  const scrollY = useScrollY();
+  const scrolled = scrollY > 24;
 
   return (
-    <nav className="sticky top-0 z-30">
-      <div className="mx-auto max-w-6xl px-4 py-2 sm:px-6 sm:py-3">
-        <div className="relative mx-auto flex max-w-6xl items-center gap-4 overflow-hidden rounded-full border border-slate-800/70 bg-gradient-to-r from-slate-950/90 via-slate-900/85 to-slate-950/90 px-4 py-2 backdrop-blur sm:px-6">
-          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_50%,rgba(6,182,212,0.18),transparent_45%),radial-gradient(circle_at_80%_50%,rgba(52,211,153,0.16),transparent_45%)] opacity-70" />
-          <div className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.22em] text-cyan-200 cursor-pointer" onClick={() => window.location.href='/'}>
-            <span className="h-px w-8 bg-cyan-500" />
+    <nav className="fixed inset-x-0 top-0 z-40">
+      <div
+        className={`border-b transition-all duration-500 ${
+          scrolled || isOpen
+            ? "border-white/10 bg-black/80 backdrop-blur-xl"
+            : "border-transparent bg-transparent"
+        }`}
+      >
+        <div className="mx-auto flex max-w-7xl items-center gap-4 px-5 py-3 sm:px-8">
+          <a href="/" className="flex items-center gap-3" aria-label="Lift HVL home">
             <img
               src={logo}
               alt="Lift HVL logo"
-              className="h-25 w-25 object-contain"
+              className={`object-contain transition-all duration-500 ${
+                scrolled ? "h-11 w-11" : "h-14 w-14"
+              }`}
             />
-          </div>
+            <span className="hidden text-sm font-semibold uppercase tracking-[0.35em] text-white sm:block">
+              Lift
+            </span>
+          </a>
+
           <div className="flex-1" />
-          <div className="hidden flex-wrap items-center gap-3 text-sm font-medium text-slate-200 md:flex">
+
+          <div className="hidden items-center gap-1 md:flex">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="rounded-full border border-slate-700/70 bg-white/5 px-5 py-2.5 text-sm font-semibold text-slate-100 transition hover:-translate-y-0.5 hover:border-cyan-300/80 hover:bg-white/12 hover:text-cyan-100"
+                className="rounded-full px-4 py-2 text-sm font-medium text-slate-200 transition-colors hover:text-cyan-300"
               >
                 {link.label}
               </a>
             ))}
             <a
               href="mailto:hello@lifthvl.no"
-              className="inline-flex items-center gap-2 rounded-full border border-cyan-300/60 bg-cyan-500/15 px-5 py-2.5 font-semibold text-cyan-100 transition hover:-translate-y-0.5 hover:bg-cyan-400/20 hover:text-cyan-50 md:ml-6"
+              className="ml-3 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-5 py-2 text-sm font-semibold text-white transition hover:border-cyan-300/70 hover:bg-cyan-400/10 hover:text-cyan-100"
             >
               Contact
               <span aria-hidden>{"->"}</span>
             </a>
           </div>
+
           <button
             type="button"
-            className="relative inline-flex items-center justify-center gap-2 rounded-full border border-slate-700/70 bg-white/5 px-3 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-slate-100 transition hover:-translate-y-0.5 hover:border-cyan-300/80 hover:bg-white/12 hover:text-cyan-100 md:hidden"
+            className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-4 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-white transition hover:border-cyan-300/70 md:hidden"
             onClick={() => setIsOpen((prev) => !prev)}
             aria-expanded={isOpen}
             aria-label="Toggle navigation"
           >
-            <span className="h-[1px] w-6 bg-current shadow-[0_6px_0_0_currentColor,0_-6px_0_0_currentColor]" aria-hidden />
+            <span
+              className="h-[1px] w-6 bg-current shadow-[0_6px_0_0_currentColor,0_-6px_0_0_currentColor]"
+              aria-hidden
+            />
             Menu
           </button>
         </div>
+
         <div
           className={`md:hidden transition-[max-height,opacity] duration-300 ${
-            isOpen ? "max-h-80 opacity-100" : "max-h-0 opacity-0"
+            isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
           } overflow-hidden`}
         >
-          <div className="mt-3 space-y-2 rounded-3xl border border-slate-800/80 bg-gradient-to-b from-slate-950/90 to-slate-900/85 p-4 backdrop-blur">
+          <div className="space-y-2 px-5 pb-5 sm:px-8">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="flex items-center justify-between rounded-xl border border-slate-800/80 bg-white/5 px-4 py-3 text-sm font-semibold text-slate-100 transition hover:-translate-y-0.5 hover:border-cyan-300/80 hover:bg-white/10 hover:text-cyan-100"
+                className="flex items-center justify-between rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm font-semibold text-slate-100 transition hover:border-cyan-300/70 hover:text-cyan-100"
                 onClick={() => setIsOpen(false)}
               >
                 {link.label}
@@ -73,7 +92,7 @@ export function NavBar() {
             ))}
             <a
               href="mailto:hello@lifthvl.no"
-              className="flex items-center justify-between rounded-xl border border-cyan-300/60 bg-cyan-500/15 px-4 py-3 text-sm font-semibold text-cyan-100 transition hover:-translate-y-0.5 hover:bg-cyan-400/20 hover:text-cyan-50"
+              className="flex items-center justify-between rounded-xl border border-cyan-300/50 bg-cyan-500/10 px-4 py-3 text-sm font-semibold text-cyan-100 transition hover:bg-cyan-400/20"
               onClick={() => setIsOpen(false)}
             >
               Contact

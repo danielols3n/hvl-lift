@@ -1,8 +1,10 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif,
+  --font-sans: "Space Grotesk", ui-sans-serif, system-ui, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-mono: "Space Mono", ui-monospace, SFMono-Regular, Menlo, Consolas,
+    monospace;
 }
 
 html,
@@ -22,4 +24,81 @@ button,
 [type="reset"],
 [role="button"] {
   cursor: pointer;
+}
+
+/* Smooth in-page scrolling for anchor navigation */
+html {
+  scroll-behavior: smooth;
+}
+
+/* --- Scroll reveal animations --- */
+.reveal {
+  opacity: 0;
+  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+.reveal-up {
+  transform: translateY(40px);
+}
+.reveal-left {
+  transform: translateX(-48px);
+}
+.reveal-right {
+  transform: translateX(48px);
+}
+.reveal-scale {
+  transform: scale(0.94);
+}
+.reveal-fade {
+  transform: none;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Slow drifting glow used behind hero / section backdrops */
+@keyframes drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(2%, -3%, 0) scale(1.08);
+  }
+}
+.animate-drift {
+  animation: drift 18s ease-in-out infinite;
+}
+
+/* Bouncing scroll cue */
+@keyframes scroll-cue {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.4;
+  }
+  50% {
+    transform: translateY(8px);
+    opacity: 1;
+  }
+}
+.animate-scroll-cue {
+  animation: scroll-cue 1.8s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .animate-drift,
+  .animate-scroll-cue {
+    animation: none !important;
+  }
 }
