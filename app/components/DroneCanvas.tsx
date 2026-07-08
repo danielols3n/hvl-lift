@@ -22,15 +22,13 @@ function DroneModel({
     if (!g) return;
 
     if (dynamic) {
-      // Continuous spin + gentle float + tilt toward the cursor = alive
-      g.rotation.y += delta * 0.45;
-      g.position.y = Math.sin(state.clock.elapsedTime * 1.1) * 0.08;
-      const targetX = -0.12 - state.pointer.y * 0.35;
-      const targetZ = state.pointer.x * 0.22;
-      g.rotation.x += (targetX - g.rotation.x) * 0.05;
-      g.rotation.z += (targetZ - g.rotation.z) * 0.05;
+      // Calm turntable: slow spin, gentle float, a whisper of pointer tilt
+      g.rotation.y += delta * 0.35;
+      g.position.y = Math.sin(state.clock.elapsedTime * 1.1) * 0.07;
+      const targetX = -0.12 - state.pointer.y * 0.06;
+      g.rotation.x += (targetX - g.rotation.x) * 0.04;
     } else {
-      // Scroll-driven turntable + lift (take-off)
+      // Scroll-driven turntable + lift (take-off), used by the hero variant
       const targetY = p.current * Math.PI * 2;
       g.rotation.y += (targetY - g.rotation.y) * 0.12;
       g.position.y = 0.1 + p.current * 0.7;
@@ -61,7 +59,7 @@ export function DroneCanvas({
       className={className}
       dpr={[1, 2]}
       gl={{ alpha: true, antialias: true }}
-      camera={{ position: [0, 0.6, 4.4], fov: 35 }}
+      camera={{ position: [0, 0.5, 3.9], fov: 35 }}
     >
       {/* Light: bright, soft, with a cyan rim for the sci-fi look */}
       <ambientLight intensity={0.7} />
@@ -87,5 +85,4 @@ export function DroneCanvas({
   );
 }
 
-// Preload so the model starts fetching as soon as the module loads
 useGLTF.preload("/drone/drone.glb", true);

@@ -1,70 +1,55 @@
 import { lazy, Suspense, useEffect, useState } from "react";
 import { Reveal } from "./Reveal";
+import { SectionDivider } from "./Section";
 
 const DroneCanvas = lazy(() =>
   import("./DroneCanvas").then((m) => ({ default: m.DroneCanvas }))
 );
 
 const specs = [
-  { label: "Type", value: "Quadcopter UAV" },
-  { label: "Frame", value: "Carbon fiber + aluminium" },
-  { label: "Status", value: "In development" },
-  { label: "Team", value: "Mech · HW · SW" },
+  { label: "Type", value: "Hexacopter UAV" },
+  { label: "Span", value: "1 186 mm" },
+  { label: "Height", value: "662 mm" },
+  { label: "Materials", value: "Carbon fiber · Aluminium · PLA" },
+  { label: "Components", value: "149" },
+  { label: "Status", value: "Prototype" },
 ];
 
-export function DroneShowcase({ modelSrc }: { modelSrc: string }) {
+export function DroneShowcase({
+  modelSrc,
+  index = "02",
+  label = "The aircraft",
+}: {
+  modelSrc: string;
+  index?: string;
+  label?: string;
+}) {
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
 
   return (
-    <section className="relative py-28 sm:py-36">
+    <section className="py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
-        {/* divider */}
-        <Reveal variant="fade">
-          <div className="flex items-center gap-4">
-            <span className="font-mono text-xs text-cyan-400">03</span>
-            <span className="font-mono text-[10px] uppercase tracking-[0.35em] text-slate-500">
-              The aircraft
-            </span>
-            <span className="h-px flex-1 bg-gradient-to-r from-cyan-500/50 via-white/10 to-transparent" />
-          </div>
-        </Reveal>
+        <SectionDivider index={index} label={label} />
 
-        <div className="mt-12 grid items-center gap-10 lg:grid-cols-2">
-          {/* Text / spec panel */}
-          <div>
-            <Reveal variant="up">
-              <p className="font-mono text-xs uppercase tracking-[0.35em] text-cyan-300">
-                // Prototype
-              </p>
-              <h2 className="mt-5 text-5xl font-bold tracking-[-0.03em] text-white sm:text-6xl lg:text-7xl">
-                Queen&nbsp;bee
-              </h2>
-              <p className="mt-6 max-w-xl text-lg leading-relaxed text-slate-400">
-                Our in-house UAV — designed, machined and coded end-to-end by the
-                team. Drag your cursor over it to take a closer look.
-              </p>
-            </Reveal>
+        <div className="mt-7 flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
+          <h2 className="text-5xl font-bold tracking-[-0.03em] text-white sm:text-6xl lg:text-7xl">
+            Queen&nbsp;bee
+          </h2>
+          <Reveal delay={80}>
+            <p className="max-w-xl text-lg leading-relaxed text-slate-400">
+              Our first drone is a hexacopter with a 1 186 mm rotor span. We
+              designed it in Fusion and build it in carbon fiber, aluminium and
+              3D printed PLA. It is still a prototype.
+            </p>
+          </Reveal>
+        </div>
 
-            <Reveal variant="up" delay={120}>
-              <dl className="mt-10 grid max-w-md grid-cols-2 gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/10">
-                {specs.map((s) => (
-                  <div key={s.label} className="bg-black/80 p-5">
-                    <dt className="font-mono text-[10px] uppercase tracking-[0.2em] text-slate-500">
-                      {s.label}
-                    </dt>
-                    <dd className="mt-1 text-sm font-semibold text-slate-100">
-                      {s.value}
-                    </dd>
-                  </div>
-                ))}
-              </dl>
-            </Reveal>
-          </div>
+        {/* Full-width interactive model */}
+        <Reveal variant="up" delay={120}>
+          <div className="relative mt-12 h-[520px] overflow-hidden rounded-3xl border border-white/10 bg-black/40 sm:h-[620px] lg:h-[720px]">
+            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_45%,rgba(34,211,238,0.16),transparent_55%),radial-gradient(circle_at_50%_80%,rgba(37,99,235,0.14),transparent_60%)]" />
 
-          {/* 3D model */}
-          <div className="relative h-[420px] sm:h-[520px]">
-            <div className="pointer-events-none absolute inset-0 -z-10 rounded-3xl bg-[radial-gradient(circle_at_50%_40%,rgba(34,211,238,0.18),transparent_55%),radial-gradient(circle_at_50%_75%,rgba(37,99,235,0.16),transparent_60%)]" />
             {mounted ? (
               <Suspense fallback={null}>
                 <DroneCanvas src={modelSrc} dynamic className="h-full w-full" />
@@ -74,8 +59,30 @@ export function DroneShowcase({ modelSrc }: { modelSrc: string }) {
                 loading model…
               </div>
             )}
+
+            <div className="pointer-events-none absolute inset-x-0 bottom-6 flex justify-center">
+              <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-slate-500">
+                Live 3D model · designed in Fusion
+              </span>
+            </div>
           </div>
-        </div>
+        </Reveal>
+
+        {/* Spec strip */}
+        <Reveal delay={160}>
+          <dl className="mt-6 grid gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/10 sm:grid-cols-3 lg:grid-cols-6">
+            {specs.map((s) => (
+              <div key={s.label} className="bg-black/80 p-5">
+                <dt className="font-mono text-[10px] uppercase tracking-[0.2em] text-slate-500">
+                  {s.label}
+                </dt>
+                <dd className="mt-1 text-sm font-semibold text-slate-100">
+                  {s.value}
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </Reveal>
       </div>
     </section>
   );

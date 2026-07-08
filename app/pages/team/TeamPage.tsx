@@ -1,5 +1,9 @@
 import { NavBar } from "../../components/NavBar";
 import { Footer } from "../../components/Footer";
+import { Reveal } from "../../components/Reveal";
+import { PageHeader } from "../../components/PageHeader";
+import { SectionDivider, SectionTitle } from "../../components/Section";
+import { TeamBackground } from "../../components/TeamBackground";
 import fellesbilde from "../../assets/fellesbilde.jpg";
 
 type Member = {
@@ -8,6 +12,64 @@ type Member = {
   avatar: string;
 };
 
+/** Moved here from the homepage — this is where departments belong. */
+const departments = [
+  {
+    name: "Mechanical",
+    tagline: "Designing the flying skeleton and muscles of our drones.",
+    description:
+      "Build, test, and iterate airframes that balance speed, endurance, and payload needs. From CAD to carbon fiber layups, you will own the physical design and fabrication of our drones. Get hands-on experience with composite materials, structural analysis, and flight testing to bring our designs to life.",
+    focusAreas: [
+      "CAD + structural design",
+      "3D printing",
+      "Assembly + flight testing",
+      "Protection against water, dust and crashes",
+      "Maintenance and repairs",
+      "Mechanical integration of sensors",
+    ],
+    lookingFor: "Students who like design, materials, and hands-on fabrication.",
+    contact: "mechanical@lifthvl.no",
+  },
+  {
+    name: "Hardware",
+    tagline: "Creating the brain in the drone and the nervous system to connect it all.",
+    description:
+      "Design and build the electronic systems that power our drones. From flight controllers to custom sensor boards, you will develop the hardware that enables our drones to fly smarter. Get experience with circuit design, soldering, and avionics integration as you build and test the brains of our UAVs.",
+    focusAreas: [
+      "Power systems",
+      "Sensor integration",
+      "RF + telemetry",
+      "Custom PCB design",
+      "Hardware testing and debugging",
+      "Battery Management Systems",
+      "Waterproofing and durability",
+      "Sensor calibration and integration",
+    ],
+    lookingFor: "Students who enjoy electronics, soldering, and troubleshooting.",
+    contact: "hardware@lifthvl.no",
+  },
+  {
+    name: "Software",
+    tagline: "Telling the brain in the drone what to do.",
+    description:
+      "Write the flight software that controls our drones in the air. From low-level control loops to high-level autonomy, you will develop the code that makes our drones fly smarter. Gain experience with embedded programming, computer vision, and simulation as you build the software that powers our UAVs. Work on real-time control systems, sensor fusion algorithms, and mission planning software to enable our drones to navigate complex environments.",
+    focusAreas: [
+      "Computer vision",
+      "Simulation",
+      "Firmware configuration",
+      "Ground control software",
+      "Data analysis and visualization",
+      "Autonomous navigation algorithms",
+      "AI models for perception and decision-making",
+      "Sensor data processing",
+      "Communication protocols and telemetry",
+      "Flight software architecture and optimization",
+    ],
+    lookingFor: "Students who like programming and robotics.",
+    contact: "software@lifthvl.no",
+  },
+];
+
 const board: Member[] = [
   { name: "Daniel Olsen", role: "Leader", avatar: "DO" },
   { name: "Bawan Mohammed Bawla", role: "Deputy Leader", avatar: "BB" },
@@ -15,10 +77,9 @@ const board: Member[] = [
   { name: "Viktor Rindsem", role: "Board Member", avatar: "VR" },
 ];
 
-const memberGroups: { title: string; description: string; members: Member[] }[] = [
+const memberGroups: { title: string; members: Member[] }[] = [
   {
     title: "Mechanical",
-    description: "Designs airframes, structures, and test rigs to keep the fleet flying efficiently.",
     members: [
       { name: "Erlend Snipen", role: "Mechanical Lead", avatar: "ES" },
       { name: "Skjalg Freheim", role: "Member", avatar: "SF" },
@@ -29,7 +90,6 @@ const memberGroups: { title: string; description: string; members: Member[] }[] 
   },
   {
     title: "Hardware",
-    description: "Builds the electronics stack, power systems, and sensor integrations.",
     members: [
       { name: "Bawan Mohammed Bawla", role: "Hardware Lead", avatar: "BB" },
       { name: "Viktor Rindsem", role: "Member", avatar: "VR" },
@@ -43,7 +103,6 @@ const memberGroups: { title: string; description: string; members: Member[] }[] 
   },
   {
     title: "Software",
-    description: "Develops autonomy, tooling, and mission logic for safer, smarter flights.",
     members: [
       { name: "Daniel Olsen", role: "Software Lead", avatar: "DO" },
       { name: "Øyvind Lundstad", role: "Member", avatar: "ØL" },
@@ -57,21 +116,19 @@ const memberGroups: { title: string; description: string; members: Member[] }[] 
   },
 ];
 
-function Avatar({ initials }: { initials: string }) {
-  return (
-    <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-cyan-400/30 bg-gradient-to-br from-cyan-500/20 via-slate-900/70 to-emerald-400/15 text-lg font-semibold text-cyan-100">
-      {initials}
-    </div>
-  );
-}
-
 function MemberCard({ member }: { member: Member }) {
   return (
-    <div className="flex items-center gap-4 rounded-2xl border border-slate-800/70 bg-gradient-to-br from-slate-950/70 via-slate-900/70 to-slate-950/70 p-4">
-      <Avatar initials={member.avatar} />
-      <div>
-        <div className="text-sm uppercase tracking-[0.16em] text-cyan-200">{member.role}</div>
-        <div className="text-lg font-semibold text-slate-50">{member.name}</div>
+    <div className="flex items-center gap-4 rounded-2xl border border-white/10 bg-white/[0.03] p-4 transition duration-500 hover:border-cyan-300/40">
+      <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl border border-cyan-400/30 bg-gradient-to-br from-cyan-500/20 to-blue-600/10 font-mono text-sm font-bold text-cyan-100">
+        {member.avatar}
+      </div>
+      <div className="min-w-0">
+        <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-cyan-300">
+          {member.role}
+        </div>
+        <div className="mt-1 truncate text-base font-semibold text-white">
+          {member.name}
+        </div>
       </div>
     </div>
   );
@@ -79,109 +136,161 @@ function MemberCard({ member }: { member: Member }) {
 
 export function TeamPage() {
   return (
-    <div className="relative min-h-screen overflow-hidden bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 text-slate-100">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,#06b6d420,transparent_35%),radial-gradient(circle_at_80%_0%,#22d3ee19,transparent_32%),radial-gradient(circle_at_50%_90%,#14b8a640,transparent_32%)]" />
-      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(120deg,transparent_0,transparent_49%,rgba(255,255,255,0.04)_50%,transparent_51%,transparent)] bg-[length:11px_11px] opacity-40" />
-
+    <div className="relative isolate min-h-screen bg-black text-slate-100">
+      <TeamBackground />
       <NavBar />
 
-      <main className="relative mx-auto max-w-6xl px-4 pb-24 sm:px-6">
-        <section className="flex flex-col gap-10 pt-16 lg:pt-24">
-          <div className="flex items-center gap-3 text-xs uppercase tracking-[0.35em] text-cyan-300">
-            <span className="h-px w-10 bg-cyan-500" />
-            Meet the crew
-            <span className="h-px w-10 bg-cyan-500" />
-          </div>
-          <div className="grid items-start gap-10 lg:grid-cols-[1.05fr,0.95fr]">
-            <div className="space-y-6">
-              <h1 className="text-4xl font-semibold leading-tight sm:text-5xl lg:text-6xl">
-                The team behind every flight.
-              </h1>
-              <p className="text-lg text-slate-300 sm:text-xl">
-                We are a tight-knit group of students passionate about pushing the boundaries of drone technology. With diverse backgrounds in engineering, design and computer science, we come together to innovate and create cutting-edge UAVs. Each member brings unique skills and perspectives, making our team stronger and more creative. Join us on this exciting journey as we take flight!
+      <PageHeader
+        eyebrow="Meet the crew"
+        title="The team behind every flight."
+        subtitle="We are 21 volunteer students from engineering, design and computer science. Nobody here is paid, and most of us learned this by building it."
+      >
+        <div className="flex flex-wrap items-center gap-4">
+          <a
+            href="mailto:hello@lifthvl.no"
+            className="inline-flex items-center gap-2 rounded-full bg-cyan-400 px-7 py-3.5 font-semibold text-black transition hover:-translate-y-0.5 hover:bg-cyan-300"
+          >
+            Join the team
+            <span aria-hidden>{"->"}</span>
+          </a>
+          <a
+            href="/projects"
+            className="inline-flex items-center gap-2 rounded-full border border-white/25 px-7 py-3.5 font-semibold text-white transition hover:-translate-y-0.5 hover:border-cyan-300/70 hover:text-cyan-100"
+          >
+            See our projects
+          </a>
+        </div>
+      </PageHeader>
+
+      <main className="relative">
+        {/* ---------------- 01 DEPARTMENTS ---------------- */}
+        <section className="py-24 sm:py-32">
+          <div className="mx-auto max-w-7xl px-5 sm:px-8">
+            <SectionDivider index="01" label="Departments" />
+            <SectionTitle>Pick a department and start building.</SectionTitle>
+            <Reveal delay={140}>
+              <p className="mt-6 max-w-2xl text-lg text-slate-400">
+                Each department has its own focus, mentors and weekly sessions.
+                You do not need prior experience.
               </p>
-              <div className="flex flex-wrap gap-3">
-                <a
-                  href="mailto:hello@lifthvl.no"
-                  className="inline-flex items-center gap-2 rounded-full bg-cyan-400 px-6 py-3 font-semibold text-gray-950 transition hover:-translate-y-0.5 hover:bg-cyan-300"
-                >
-                  Join the team
-                  <span aria-hidden>{"->"}</span>
-                </a>
-                <a
-                  href="/projects"
-                  className="inline-flex items-center gap-2 rounded-full border border-slate-800/80 px-6 py-3 font-semibold text-slate-200 transition hover:-translate-y-0.5 hover:border-cyan-400/70 hover:text-cyan-100"
-                >
-                  See our projects
-                </a>
-              </div>
-            </div>
-            <div className="grid gap-4 sm:grid-cols-2">
-              <div className="rounded-2xl border border-slate-800/80 bg-white/5 px-4 py-5 backdrop-blur">
-                <div className="text-2xl font-semibold text-cyan-300">21</div>
-                <div className="mt-1 text-sm uppercase tracking-wide text-slate-400">Active members</div>
-              </div>
-              <div className="rounded-2xl border border-slate-800/80 bg-white/5 px-4 py-5 backdrop-blur">
-                <div className="text-2xl font-semibold text-cyan-300">3</div>
-                <div className="mt-1 text-sm uppercase tracking-wide text-slate-400">Focus groups</div>
-              </div>
-            </div>
-          </div>
-        </section>
+            </Reveal>
 
-        <section className="mt-16 space-y-6">
-          <div className="flex items-center gap-3 text-xs uppercase tracking-[0.25em] text-cyan-300">
-            <span className="h-px w-8 bg-cyan-500" />
-            Board
-          </div>
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {board.map((member) => (
-              <MemberCard key={member.name} member={member} />
-            ))}
-          </div>
-        </section>
-
-        <section className="mt-16 space-y-10">
-          <div className="flex items-center gap-3 text-xs uppercase tracking-[0.25em] text-cyan-300">
-            <span className="h-px w-8 bg-cyan-500" />
-            Members
-          </div>
-          <div className="space-y-10">
-            {memberGroups.map((group) => (
-              <div key={group.title} className="space-y-4">
-                <div className="flex items-center gap-3 text-sm uppercase tracking-[0.2em] text-cyan-200">
-                  <span className="h-px w-8 bg-cyan-500" />
-                  {group.title}
-                </div>
-                <p className="text-sm text-slate-300">{group.description}</p>
-                <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                  {group.members.length === 0 ? (
-                    <div className="rounded-2xl border border-dashed border-cyan-500/40 bg-slate-900/40 px-4 py-6 text-sm text-slate-300">
-                      Come join the {group.title} team!
+            <div className="mt-14 divide-y divide-white/10 border-y border-white/10">
+              {departments.map((department, i) => (
+                <Reveal key={department.name} variant="up" delay={i * 60}>
+                  <article className="grid gap-8 py-12 lg:grid-cols-[0.75fr,1.25fr]">
+                    <div>
+                      <div className="flex items-baseline gap-4">
+                        <span className="font-mono text-xs text-cyan-400">
+                          0{i + 1}
+                        </span>
+                        <h3 className="text-2xl font-semibold tracking-tight text-white sm:text-3xl">
+                          {department.name}
+                        </h3>
+                      </div>
+                      <p className="mt-3 text-slate-400">{department.tagline}</p>
+                      <a
+                        className="mt-6 inline-block font-mono text-xs text-cyan-300 transition hover:text-cyan-200"
+                        href={`mailto:${department.contact}`}
+                      >
+                        {department.contact}
+                      </a>
                     </div>
-                  ) : (
-                    group.members.map((member) => <MemberCard key={member.name} member={member} />)
-                  )}
-                </div>
-              </div>
-            ))}
+
+                    <div>
+                      <p className="leading-relaxed text-slate-400">
+                        {department.description}
+                      </p>
+                      <p className="mt-6 text-sm text-slate-300">
+                        {department.lookingFor}
+                      </p>
+                      <div className="mt-6 flex flex-col gap-2 sm:flex-row sm:gap-4">
+                        <span className="shrink-0 font-mono text-[10px] uppercase tracking-[0.2em] text-slate-600">
+                          Focus
+                        </span>
+                        <p className="text-sm leading-relaxed text-slate-500">
+                          {department.focusAreas.join(" · ")}
+                        </p>
+                      </div>
+                    </div>
+                  </article>
+                </Reveal>
+              ))}
+            </div>
           </div>
         </section>
 
-        <section className="mt-16 space-y-6">
-          <div className="flex items-center gap-3 text-xs uppercase tracking-[0.25em] text-cyan-300">
-            <span className="h-px w-8 bg-cyan-500" />
-            2026 TEAM
+        {/* ---------------- 02 BOARD ---------------- */}
+        <section className="py-24 sm:py-32">
+          <div className="mx-auto max-w-7xl px-5 sm:px-8">
+            <SectionDivider index="02" label="Board" />
+            <SectionTitle>Who runs the organisation.</SectionTitle>
+            <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              {board.map((member, i) => (
+                <Reveal key={member.name} variant="up" delay={i * 70}>
+                  <MemberCard member={member} />
+                </Reveal>
+              ))}
+            </div>
           </div>
-          <div className="mx-auto w-full max-w-4xl overflow-hidden rounded-2xl border border-slate-800/80 bg-white/5">
-            <img
-              src={fellesbilde}
-              alt="2026 team"
-              className="h-auto w-full object-cover"
-            />
+        </section>
+
+        {/* ---------------- 03 MEMBERS ---------------- */}
+        <section className="py-24 sm:py-32">
+          <div className="mx-auto max-w-7xl px-5 sm:px-8">
+            <SectionDivider index="03" label="Members" />
+            <SectionTitle>The people in each department.</SectionTitle>
+
+            <div className="mt-14 space-y-16">
+              {memberGroups.map((group) => (
+                <div key={group.title}>
+                  <Reveal variant="fade">
+                    <div className="flex items-center gap-4">
+                      <h3 className="text-xl font-bold tracking-tight text-white">
+                        {group.title}
+                      </h3>
+                      <span className="h-px flex-1 bg-white/10" />
+                      <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-slate-500">
+                        {group.members.length} members
+                      </span>
+                    </div>
+                  </Reveal>
+                  <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                    {group.members.length === 0 ? (
+                      <div className="rounded-2xl border border-dashed border-cyan-500/40 bg-white/[0.02] px-4 py-6 text-sm text-slate-300">
+                        Come join the {group.title} team!
+                      </div>
+                    ) : (
+                      group.members.map((member, i) => (
+                        <Reveal key={member.name} variant="up" delay={i * 50}>
+                          <MemberCard member={member} />
+                        </Reveal>
+                      ))
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ---------------- 04 TEAM PHOTO ---------------- */}
+        <section className="py-24 sm:py-32">
+          <div className="mx-auto max-w-7xl px-5 sm:px-8">
+            <SectionDivider index="04" label="2026 team" />
+            <Reveal variant="up" delay={80}>
+              <figure className="mt-10 overflow-hidden rounded-3xl border border-white/10">
+                <img
+                  src={fellesbilde}
+                  alt="The Lift HVL team of 2026"
+                  className="h-auto w-full object-cover"
+                />
+              </figure>
+            </Reveal>
           </div>
         </section>
       </main>
+
       <Footer />
     </div>
   );
