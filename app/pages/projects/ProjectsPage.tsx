@@ -29,9 +29,9 @@ const projectOverview: Array<{
 }> = [
   {
     title: "Queen Bee",
-    status: "Planning",
-    statusColor: "red",
-    phase: "Planning",
+    status: "Under development",
+    statusColor: "amber",
+    phase: "Under development",
     timeline: "1st semester 2026",
     focus: "Drone with avionics and coupling/decoupling mechanism for controlling smaller drones.",
     summary: "Building the first Lift HVL drone with focus on making the queen bee for our 2nd semester 2026 project",
@@ -111,11 +111,6 @@ export function ProjectsPage() {
 
       <main className="relative mx-auto max-w-6xl px-4 pb-24 sm:px-6">
         <section className="flex flex-col gap-10 pt-16 lg:pt-24">
-          <div className="flex items-center gap-3 text-xs uppercase tracking-[0.35em] text-cyan-300">
-            <span className="h-px w-10 bg-cyan-500" />
-            Projects & Missions
-            <span className="h-px w-10 bg-cyan-500" />
-          </div>
           <div className="grid items-start gap-10 lg:grid-cols-[1.1fr,0.9fr]">
             <div className="space-y-6">
               <h1 className="text-4xl font-semibold leading-tight sm:text-5xl lg:text-6xl">

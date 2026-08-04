@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { NavBar } from "../../components/NavBar";
 import { Footer } from "../../components/Footer";
 import frifondLogo from "../../assets/sponsors/frifond.png";
@@ -78,6 +79,9 @@ const sponsors: Array<{
 ];
 
 export function HomePage() {
+  const [activeDepartment, setActiveDepartment] = useState(0);
+  const department = departments[activeDepartment];
+
   return (
     <div className="relative min-h-screen overflow-hidden bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 text-slate-100">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,#06b6d420,transparent_35%),radial-gradient(circle_at_80%_0%,#22d3ee19,transparent_32%),radial-gradient(circle_at_50%_90%,#14b8a640,transparent_32%)]" />
@@ -87,11 +91,6 @@ export function HomePage() {
 
       <main className="relative mx-auto max-w-6xl px-4 pb-24 sm:px-6">
         <section className="flex flex-col gap-12 pt-16 lg:pt-24">
-          <div className="flex items-center gap-3 text-xs uppercase tracking-[0.35em] text-cyan-300">
-            <span className="h-px w-10 bg-cyan-500" />
-            Lift HVL | Student Drone Team
-            <span className="h-px w-10 bg-cyan-500" />
-          </div>
           <div className="grid items-center gap-12 lg:grid-cols-[1.05fr,0.95fr]">
             <div className="space-y-8">
               <h1 className="text-4xl font-semibold leading-tight text-slate-50 sm:text-5xl lg:text-6xl">
@@ -108,14 +107,6 @@ export function HomePage() {
                 Lift HVL is the student team crafting high-performance UAVs - designing airframes, writing flight software,
                 and pushing new pilots into the sky. Join the crew and start lifting your skills to the sky.
               </p>
-              <aside className="rounded-2xl border border-amber-300/40 bg-amber-200/10 px-5 py-4 text-sm text-amber-100">
-                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-amber-200">Disclaimer</p>
-                <p className="mt-2 leading-relaxed">
-                  LIFT HVL is a student organization and does not conduct drone flights on behalf of Høgskulen på Vestlandet
-                  (HVL). All activity and public communication are carried out by the student team and should not be
-                  understood as operational flying or official activity under HVL.
-                </p>
-              </aside>
               <div className="flex flex-wrap items-center gap-4">
                 <a
                   href="mailto:hello@lifthvl.no"
@@ -137,24 +128,12 @@ export function HomePage() {
                   Read project updates
                 </a>
               </div>
-              <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
-                {stats.map((stat) => (
-                  <div
-                    key={stat.label}
-                    className="rounded-2xl border border-slate-800/80 bg-white/5 px-4 py-5 backdrop-blur"
-                  >
-                    <div className="text-2xl font-semibold text-cyan-300">{stat.value}</div>
-                    <div className="mt-1 text-sm uppercase tracking-wide text-slate-400">{stat.label}</div>
-                  </div>
-                ))}
-              </div>
             </div>
           </div>
         </section>
         <section className="mt-20 space-y-6">
           <div className="flex items-center justify-between gap-4">
             <div>
-              <p className="text-xs uppercase tracking-[0.25em] text-cyan-300">What we build</p>
               <h2 className="text-3xl font-semibold text-slate-50 sm:text-4xl">Hardware and firmware in the lab</h2>
               <p className="mt-2 max-w-3xl text-slate-300">
                 Small teams own end-to-end missions: CAD to carbon, avionics calibration to ground control UX.
@@ -186,42 +165,49 @@ export function HomePage() {
               Each department has its own focus, mentors, and weekly sessions. 
             </p>
           </div>
-          <div className="grid grid-cols-1 gap-6">
-            {departments.map((department) => (
-              <article
-                key={department.name}
-                className="flex w-full max-w-3xl flex-col rounded-2xl border border-emerald-400/30 bg-gradient-to-b from-emerald-500/5 via-slate-950/70 to-slate-900/80 p-6"
-              >
-                <div className="flex items-start justify-between gap-3">
-                  <div>
-                    <h3 className="text-xl font-semibold text-slate-50">{department.name}</h3>
-                    <p className="mt-1 text-sm text-emerald-200">{department.tagline}</p>
-                  </div>
-                  <span className="rounded-full border border-emerald-300/40 px-3 py-1 text-xs uppercase tracking-[0.2em] text-emerald-200">
-                    Team
-                  </span>
-                </div>
-                <p className="mt-4 text-sm leading-relaxed text-slate-300">{department.description}</p>
-                <div className="mt-4 text-xs uppercase tracking-[0.2em] text-slate-400">Focus areas</div>
-                <ul className="mt-2 grid grid-cols-1 gap-2 sm:grid-cols-2">
-                  {department.focusAreas.map((focus) => (
-                    <li
-                      key={focus}
-                      className="rounded-full border border-slate-800/80 bg-white/5 px-3 py-1 text-xs text-slate-200"
-                    >
-                      {focus}
-                    </li>
-                  ))}
-                </ul>
-                <p className="mt-4 text-sm text-slate-300">{department.lookingFor}</p>
-                <a
-                  className="mt-auto pt-4 text-xs uppercase tracking-[0.2em] text-emerald-200"
-                  href={`mailto:${department.contact}`}
+          <div className="border-b border-slate-800">
+            <div className="flex flex-wrap gap-8">
+              {departments.map((dept, index) => (
+                <button
+                  key={dept.name}
+                  type="button"
+                  onClick={() => setActiveDepartment(index)}
+                  className={`border-b-2 pb-3 text-lg font-semibold transition ${
+                    index === activeDepartment
+                      ? "border-emerald-400 text-slate-50"
+                      : "border-transparent text-slate-500 hover:text-slate-300"
+                  }`}
                 >
-                  Contact: {department.contact}
-                </a>
-              </article>
-            ))}
+                  {dept.name}
+                </button>
+              ))}
+            </div>
+          </div>
+          <div className="grid gap-10 pt-4 lg:grid-cols-[1.1fr,0.9fr]">
+            <div className="space-y-4">
+              <h3 className="text-xl font-semibold leading-snug text-emerald-300 sm:text-2xl">
+                {department.tagline}
+              </h3>
+              <p className="text-sm leading-relaxed text-slate-300 sm:text-base">{department.description}</p>
+              <p className="text-sm text-slate-300 sm:text-base">{department.lookingFor}</p>
+              <a
+                className="inline-block text-xs font-semibold uppercase tracking-[0.2em] text-emerald-300 transition hover:text-emerald-200"
+                href={`mailto:${department.contact}`}
+              >
+                Contact: {department.contact}
+              </a>
+            </div>
+            <div>
+              <p className="text-xs uppercase tracking-[0.25em] text-slate-400">Focus areas</p>
+              <ul className="mt-3 divide-y divide-slate-800">
+                {department.focusAreas.map((focus) => (
+                  <li key={focus} className="flex items-center gap-3 py-3 text-sm text-slate-200">
+                    <span className="h-1.5 w-1.5 flex-none rounded-full bg-emerald-400" aria-hidden />
+                    {focus}
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </section>
         <section className="mt-20 space-y-6">
