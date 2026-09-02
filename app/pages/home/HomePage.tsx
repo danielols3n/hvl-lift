@@ -4,6 +4,10 @@ import { Footer } from "../../components/Footer";
 import frifondLogo from "../../assets/sponsors/frifond.png";
 import elfLogo from "../../assets/sponsors/ELF.png";
 import elefunLogo from "../../assets/sponsors/Elefun_Logo.png";
+import altiumLogo from "../../assets/sponsors/altium.png";
+import contecLogo from "../../assets/sponsors/contec.png";
+import elprintLogo from "../../assets/sponsors/elprint.svg";
+import romvesenLogo from "../../assets/sponsors/romvesen.svg";
 
 const stats = [
   { label: "Active members", value: "21" },
@@ -56,6 +60,7 @@ const sponsors: Array<{
   name: string;
   image?: string;
   imageAlt?: string;
+  imageBg?: "light" | "dark";
   link: string;
 }> = [
   {
@@ -75,6 +80,31 @@ const sponsors: Array<{
     image: elfLogo,
     imageAlt: "Elektroingeniørenes linjeforening logo",
     link: "https://www.instagram.com/elektrohvl/",
+  },
+  {
+    name: "Altium",
+    image: altiumLogo,
+    imageAlt: "Altium logo",
+    link: "https://www.altium.com",
+  },
+  {
+    name: "Contec Electronics AS",
+    image: contecLogo,
+    imageAlt: "Contec Electronics AS logo",
+    link: "https://contecel.com",
+  },
+  {
+    name: "Elprint",
+    image: elprintLogo,
+    imageAlt: "Elprint logo",
+    link: "https://elprint.no",
+  },
+  {
+    name: "Romvesen",
+    image: romvesenLogo,
+    imageAlt: "Romvesen logo",
+    imageBg: "dark",
+    link: "https://romvesen.as",
   },
 ];
 
@@ -228,7 +258,9 @@ export function HomePage() {
                   <img
                     src={sponsor.image}
                     alt={sponsor.imageAlt ?? `${sponsor.name} logo`}
-                    className="mb-4 h-75 w-full rounded-xl border border-slate-700/70 bg-slate-900/60 object-contain p-2"
+                    className={`mb-4 h-75 w-full rounded-xl border border-slate-700/70 object-contain p-2 ${
+                      sponsor.imageBg === "dark" ? "bg-slate-900" : "bg-white"
+                    }`}
                     loading="lazy"
                   />
                 ) : null
